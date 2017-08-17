@@ -2,7 +2,7 @@
  * @api {post} /sfz_ficha_funcional_api/api/public/fichaFuncional fichaFuncional
  * @apiName fichaFuncional
  * @apiDescription Consulta ficha dos funcionários da SEFAZ/AL.
- * @apiGroup fichafuncional
+ * @apiGroup gp_mob-rh
  * @apiVersion 1.0.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.

@@ -2,7 +2,7 @@
  * @api {post} /sfz-habilitacao-aplicativo-api/api/public/autorizacao-aplicativo/solicitar solicitar
  * @apiName solicitar
  * @apiDescription Envia solicitação de acesso à SEFAZ/AL.
- * @apiGroup autorizacao_aplicativo
+ * @apiGroup autorizacao
  * @apiVersion 1.0.0
  * @apiParam {String} login  Login do usuário na SEFAZ/AL.
  * @apiParam {String} nomeDispositivo  Nome do dispositivo cadastrado previamente.
@@ -26,7 +26,7 @@
  * @api {post} /api/public/autenticar autenticar
  * @apiName autenticar
  * @apiDescription Solicita o acesso do aplicatvo à SEFAZ/AL.
- * @apiGroup autorizacao_aplicativo
+ * @apiGroup autorizacao
  * @apiVersion 1.0.0
  * @apiParam {String} login  Login do usuário na SEFAZ/AL.
  * @apiParam {String} nomeDispositivo  Nome do dispositivo cadastrado previamente.

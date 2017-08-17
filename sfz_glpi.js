@@ -31,7 +31,7 @@
  *   "status": 403,
  *   "error": "Forbidden",
  *   "message": "Access Denied",
- *   "path": "/api/public/obterCategorias"
+ *   "path": "/sfz_glpi_api/api/public/obterCategorias"
  * }
  * Response Code
  * 403
@@ -102,7 +102,7 @@
  *   "status": 403,
  *   "error": "Forbidden",
  *   "message": "Access Denied",
- *   "path": "/api/public/obterCategorias"
+ *   "path": "/sfz_glpi_api/api/public/chamado"
  * }
  * Response Code
  * 403
@@ -174,7 +174,7 @@
  *   "status": 403,
  *   "error": "Forbidden",
  *   "message": "Access Denied",
- *   "path": "/api/public/obterCategorias"
+ *   "path": "/sfz_glpi_api/api/public/chamado"
  * }
  * Response Code
  * 403
@@ -204,7 +204,7 @@
  * @apiSuccess (Sucesso 200) {Integer} chamado.reservado Reservado.
  * @apiSuccess (Sucesso 200) {Integer} chamado.reservavel Reservável.
  * @apiSuccess (Sucesso 200) {String} chamado.dataCriacao Data da criação do chamado.
- * @apiError (Erro 400) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 400) BadRequest Requisição inválida.
  * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
  * @apiError (Erro 403) Forbidden Usuário sem acesso.
  * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.

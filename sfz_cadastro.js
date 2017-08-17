@@ -2,7 +2,7 @@
  * @api {get} /cadastro/api/public/contribuinte/obterRestricoes obterRestricoes
  * @apiName obterRestricoes
  * @apiDescription Obtem as restrições cadastrais de um contribuinte.
- * @apiGroup contribuinte
+ * @apiGroup cadastro
  * @apiVersion 1.0.0
  * @apiParam {Integer} caceal Número da inscrição estadual do Contribuinte.
  * @apiHeader {String} token Chave única de acesso do usuário.
@@ -50,9 +50,9 @@
  * @api {get} /cadastro/api/public/contribuinte/obterContribuinte obterContribuinte
  * @apiName obterContribuinte
  * @apiDescription Obtem os dados de um contribuinte.....
- * @apiGroup contribuinte
+ * @apiGroup cadastro
  * @apiVersion 1.0.0
- * @apiParam {Integer} cnpjOuCaceal  CNPJ ou Caceal.
+ * @apiParam {Integer} cnpjNumeroPessoaOuCaceal  CNPJ, Número pessoa ou Caceal.
  * @apiHeader {String} token Chave única de acesso do usuário.
  * @apiSuccess (Sucesso 200) {Double} caceal Número da inscrição estadual do Contribuinte.
  * @apiSuccess (Sucesso 200) {String} cnpj Código nacional de pessoa jurídica.

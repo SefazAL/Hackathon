@@ -3,7 +3,7 @@
  * @api {post} /api/public/processosAtivos/consultarPorNumeroProcesso consultarPorNumeroProcesso
  * @apiName consultarPorNumeroProcesso
  * @apiDescription Consulta Processos ativos por número de processo.
- * @apiGroup processo-ativo
+ * @apiGroup processo
  * @apiVersion 1.0.0
  * @apiParam {String} numeroProcesso Número do processo (0000-000000/0000).
  * @apiSuccess (Sucesso 200) {Integer} [ano] Ano do processo.

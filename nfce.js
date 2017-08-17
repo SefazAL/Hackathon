@@ -32,7 +32,7 @@
  * @apiError (Erro 403) Forbidden Usuário sem acesso.
  * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
  *
- * @apiParamExample {json} Request-Example:
+ * @apiParamExample {json} Exemplo de passagem de parâmetros:
  * {
  *   "descricao": "coca cola",
  *   "dias": 3,

@@ -1,8 +1,8 @@
 /**
- * @api {post} /api/public/termoApreensao/consultar consultar
+ * @api {post} /sfz_fronteiras_api/api/public/termoApreensao/consultar consultar
  * @apiName consultar
  * @apiDescription Consulta os termos de apreensão de um determinado Contribuinte.
- * @apiGroup termo-apreensao
+ * @apiGroup fronteiras
  * @apiVersion 1.0.0
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte
  * @apiParam {String} [periodoInicio] Data de início da pesquisa.
@@ -37,15 +37,15 @@
  *    "status": 403,
  *    "error": "Forbidden",
  *    "message": "Access Denied",
- *    "path": "/api/public/termoApreensao/consultar"
+ *    "path": "/sfz_fronteiras_api/api/public/termoApreensao/consultar"
  * }
  */
 
 /**
- * @api {post} /api/public/dar/consultarAntecipado consultarAntecipado
+ * @api {post} /sfz_fronteiras_api/api/public/dar/consultarAntecipado consultarAntecipado
  * @apiName consultarAntecipado
  * @apiDescription Consulta DAR antecipado e FECOEP.
- * @apiGroup dar
+ * @apiGroup fronteiras
  * @apiVersion 1.0.0
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte
  * @apiParam {Integer} sequencialAntecipacao Número sequencial da antecipação.
@@ -91,15 +91,15 @@
  *    "status": 403,
  *    "error": "Forbidden",
  *    "message": "Access Denied",
- *    "path": "/api/public/dar/consultarAntecipado"
+ *    "path": "/sfz_fronteiras_api/api/public/dar/consultarAntecipado"
  * }
  */
 
 /**
- * @api {post} /api/public/antecipacao/consultarValoresAntecipados consultarValoresAntecipados
+ * @api {post} /sfz_fronteiras_api/api/public/antecipacao/consultarValoresAntecipados consultarValoresAntecipados
  * @apiName consultarValoresAntecipados
  * @apiDescription Consulta valores antecipado e FECOEP.
- * @apiGroup antecipacao
+ * @apiGroup fronteiras
  * @apiVersion 1.0.0
  * @apiParam {Integer} competencia Competência mm/aaaa
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte.
@@ -133,6 +133,6 @@
  *    "status": 403,
  *    "error": "Forbidden",
  *    "message": "Access Denied",
- *    "path": "/api/public/antecipacao/consultarValoresAntecipados"
+ *    "path": "/sfz_fronteiras_api/api/public/antecipacao/consultarValoresAntecipados"
  * }
  */

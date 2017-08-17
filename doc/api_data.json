@@ -23,137 +23,9 @@
     "url": "",
     "version": "0.0.0",
     "filename": "./doc/main.js",
-    "group": "_home_luan_Projetos_Hackathon_hackathon_api_doc_doc_main_js",
-    "groupTitle": "_home_luan_Projetos_Hackathon_hackathon_api_doc_doc_main_js",
+    "group": "E__SISTEMAS_hackathon_api_doc_doc_main_js",
+    "groupTitle": "E__SISTEMAS_hackathon_api_doc_doc_main_js",
     "name": ""
-  },
-  {
-    "type": "post",
-    "url": "/api/public/antecipacao/consultarValoresAntecipados",
-    "title": "consultarValoresAntecipados",
-    "name": "consultarValoresAntecipados",
-    "description": "<p>Consulta valores antecipado e FECOEP.</p>",
-    "group": "antecipacao",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "competencia",
-            "description": "<p>Competência mm/aaaa</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "numeroCaceal",
-            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "antecipados",
-            "description": "<p>Lista de valores antecipados.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "antecipados.sequencialAntecipacao",
-            "description": "<p>Número sequencial de antecipação.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "antecipados.dataVencimento",
-            "description": "<p>Data de vencimento.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "antecipados.valorAntecipado",
-            "description": "<p>Valor antecipado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "antecipados.numeroCaceal",
-            "description": "<p>Número de inscrição estadual.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "antecipados.codigoTributo",
-            "description": "<p>Código do tributo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "antecipados.competencia",
-            "description": "<p>Competência (mm/yyyy).</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n    {\n        \"sequencialAntecipacao\": 402801,\n        \"dataVencimento\": \"2007-03-20T03:00:00.000+0000\",\n        \"valorAntecipado\": 7753.7,\n        \"numeroCaceal\": 24002198,\n        \"codigoTributo\": 15423,\n        \"competencia\": \"2/2007\"\n    }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/antecipacao/consultarValoresAntecipados\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_fronteiras.js",
-    "groupTitle": "antecipacao"
   },
   {
     "type": "post",
@@ -161,7 +33,7 @@
     "title": "autenticar",
     "name": "autenticar",
     "description": "<p>Solicita o acesso do aplicatvo à SEFAZ/AL.</p>",
-    "group": "autorizacao_aplicativo",
+    "group": "autorizacao",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -246,7 +118,7 @@
       }
     },
     "filename": "./sfz_funcoes.js",
-    "groupTitle": "autorizacao_aplicativo"
+    "groupTitle": "autorizacao"
   },
   {
     "type": "post",
@@ -254,7 +126,7 @@
     "title": "solicitar",
     "name": "solicitar",
     "description": "<p>Envia solicitação de acesso à SEFAZ/AL.</p>",
-    "group": "autorizacao_aplicativo",
+    "group": "autorizacao",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -339,7 +211,338 @@
       }
     },
     "filename": "./sfz_funcoes.js",
-    "groupTitle": "autorizacao_aplicativo"
+    "groupTitle": "autorizacao"
+  },
+  {
+    "type": "get",
+    "url": "/cadastro/api/public/contribuinte/obterContribuinte",
+    "title": "obterContribuinte",
+    "name": "obterContribuinte",
+    "description": "<p>Obtem os dados de um contribuinte.....</p>",
+    "group": "cadastro",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "cnpjNumeroPessoaOuCaceal",
+            "description": "<p>CNPJ, Número pessoa ou Caceal.</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "caceal",
+            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>Código nacional de pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "codigoSituacaoCadastral",
+            "description": "<p>Código da situação cadastral do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricaoSituacaoCadastral",
+            "description": "<p>Descrição da situação cadastral do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "digitoCaceal",
+            "description": "<p>Valor do último faturamento anual do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "endereco",
+            "description": "<p>Endereço do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object",
+            "optional": false,
+            "field": "naturezaJuridica",
+            "description": "<p>Natureza Jurídica do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "codigo",
+            "description": "<p>Código da Natureza Jurídica do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Descrição da Natureza Jurídica do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "nomeFantasia",
+            "description": "<p>Nome fantasia do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "numeroPessoa",
+            "description": "<p>Número Pessoa do Contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "numeroTelefone",
+            "description": "<p>Telefone principal do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "razaoSocial",
+            "description": "<p>Razão social do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object",
+            "optional": false,
+            "field": "tipoContribuinte",
+            "description": "<p>Tipo do contribuinte.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n\"caceal\": 0,\n\"cnpj\": \"string\",\n\"codigoSituacaoCadastral\": \"string\",\n\"descricaoSituacaoCadastral\": \"string\",\n\"digitoCaceal\": 0,\n\"endereco\": \"string\",\n\"naturezaJuridica\": {\n  \"codigo\": 0,\n  \"descricao\": \"string\"\n },\n \"nomeFantasia\": \"string\",\n \"numeroPessoa\": 0,\n \"numeroTelefone\": \"string\",\n \"razaoSocial\": \"string\",\n \"tipoContribuinte\": {\n  \"codigo\": \"string\",\n  \"descricao\": \"string\"\n }\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/contribuinte/obterContribuinte/0\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_cadastro.js",
+    "groupTitle": "cadastro"
+  },
+  {
+    "type": "get",
+    "url": "/cadastro/api/public/contribuinte/obterRestricoes",
+    "title": "obterRestricoes",
+    "name": "obterRestricoes",
+    "description": "<p>Obtem as restrições cadastrais de um contribuinte.</p>",
+    "group": "cadastro",
+    "version": "1.0.0",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "caceal",
+            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
+          }
+        ]
+      }
+    },
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "token",
+            "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "codigoTipoRestricao",
+            "description": "<p>Código do tipo de restrição.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dataCompetencia",
+            "description": "<p>Data e hora de competência.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricaoRestricao",
+            "description": "<p>Descrição da restrição.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "id",
+            "description": "<p>??.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "numeroCaceal",
+            "description": "<p>CACEAL.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "numeroPessoa",
+            "description": "<p>Número identificador da pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "restricao",
+            "description": "<p>Natureza Jurídica do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "restricao.codigo",
+            "description": "<p>Código da Natureza Jurídica do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "restricao.descricao",
+            "description": "<p>Descrição da Natureza Jurídica do contribuinte.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n    \"codigoTipoRestricao\": \"string\",\n    \"dataCompetencia\": \"2017-08-16T12:45:53.384Z\",\n    \"descricaoRestricao\": \"string\",\n    \"id\": 0,\n    \"numeroCaceal\": 0,\n    \"numeroPessoa\": 0,\n    \"restricao\": {\n      \"codigo\": 0,\n      \"descricao\": \"string\"\n    },\n    \"solucao\": \"string\"\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/contribuinte/obterRestricoes/0\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_cadastro.js",
+    "groupTitle": "cadastro"
   },
   {
     "type": "get",
@@ -444,7 +647,7 @@
             "group": "Erro 400",
             "optional": false,
             "field": "Bad",
-            "description": "<p>Request Erro no request.</p>"
+            "description": "<p>Request Requisição inválida.</p>"
           }
         ],
         "Erro 401": [
@@ -887,7 +1090,7 @@
             "group": "Erro 400",
             "optional": false,
             "field": "Bad",
-            "description": "<p>Request Erro no request.</p>"
+            "description": "<p>Request Requisição inválida.</p>"
           }
         ],
         "Erro 401": [
@@ -934,12 +1137,12 @@
     "groupTitle": "certidao"
   },
   {
-    "type": "get",
-    "url": "/cadastro/api/public/contribuinte/obterContribuinte",
-    "title": "obterContribuinte",
-    "name": "obterContribuinte",
-    "description": "<p>Obtem os dados de um contribuinte.....</p>",
-    "group": "contribuinte",
+    "type": "post",
+    "url": "/sfz_fronteiras_api/api/public/termoApreensao/consultar",
+    "title": "consultar",
+    "name": "consultar",
+    "description": "<p>Consulta os termos de apreensão de um determinado Contribuinte.</p>",
+    "group": "fronteiras",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -948,21 +1151,22 @@
             "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "cnpjOuCaceal",
-            "description": "<p>CNPJ ou Caceal.</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
+            "field": "numeroCaceal",
+            "description": "<p>Número da inscrição estadual do Contribuinte</p>"
+          },
           {
-            "group": "Header",
+            "group": "Parameter",
             "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Chave única de acesso do usuário.</p>"
+            "optional": true,
+            "field": "periodoInicio",
+            "description": "<p>Data de início da pesquisa.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "periodoTermino",
+            "description": "<p>Data de término da pesquisa.</p>"
           }
         ]
       }
@@ -972,256 +1176,59 @@
         "Sucesso 200": [
           {
             "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "caceal",
-            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "cnpj",
-            "description": "<p>Código nacional de pessoa jurídica.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "codigoSituacaoCadastral",
-            "description": "<p>Código da situação cadastral do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "descricaoSituacaoCadastral",
-            "description": "<p>Descrição da situação cadastral do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "digitoCaceal",
-            "description": "<p>Valor do último faturamento anual do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "endereco",
-            "description": "<p>Endereço do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object",
-            "optional": false,
-            "field": "naturezaJuridica",
-            "description": "<p>Natureza Jurídica do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "codigo",
-            "description": "<p>Código da Natureza Jurídica do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "descricao",
-            "description": "<p>Descrição da Natureza Jurídica do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "nomeFantasia",
-            "description": "<p>Nome fantasia do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "numeroPessoa",
-            "description": "<p>Número Pessoa do Contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "numeroTelefone",
-            "description": "<p>Telefone principal do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "razaoSocial",
-            "description": "<p>Razão social do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object",
-            "optional": false,
-            "field": "tipoContribuinte",
-            "description": "<p>Tipo do contribuinte.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n\"caceal\": 0,\n\"cnpj\": \"string\",\n\"codigoSituacaoCadastral\": \"string\",\n\"descricaoSituacaoCadastral\": \"string\",\n\"digitoCaceal\": 0,\n\"endereco\": \"string\",\n\"naturezaJuridica\": {\n  \"codigo\": 0,\n  \"descricao\": \"string\"\n },\n \"nomeFantasia\": \"string\",\n \"numeroPessoa\": 0,\n \"numeroTelefone\": \"string\",\n \"razaoSocial\": \"string\",\n \"tipoContribuinte\": {\n  \"codigo\": \"string\",\n  \"descricao\": \"string\"\n }\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/contribuinte/obterContribuinte/0\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_cadastro.js",
-    "groupTitle": "contribuinte"
-  },
-  {
-    "type": "get",
-    "url": "/cadastro/api/public/contribuinte/obterRestricoes",
-    "title": "obterRestricoes",
-    "name": "obterRestricoes",
-    "description": "<p>Obtem as restrições cadastrais de um contribuinte.</p>",
-    "group": "contribuinte",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
             "type": "Integer",
             "optional": false,
-            "field": "caceal",
-            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
-          }
-        ]
-      }
-    },
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "token",
-            "description": "<p>Chave única de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "codigoTipoRestricao",
-            "description": "<p>Código do tipo de restrição.</p>"
+            "field": "numeroTermo",
+            "description": "<p>Número do termo.</p>"
           },
           {
             "group": "Sucesso 200",
-            "type": "String",
+            "type": "Integer",
             "optional": false,
-            "field": "dataCompetencia",
-            "description": "<p>Data e hora de competência.</p>"
+            "field": "dataEmissao",
+            "description": "<p>Data de emissão do termo.</p>"
           },
           {
             "group": "Sucesso 200",
-            "type": "String",
+            "type": "Integer",
             "optional": false,
-            "field": "descricaoRestricao",
-            "description": "<p>Descrição da restrição.</p>"
+            "field": "codigoStatus",
+            "description": "<p>Código de status do termo.</p>"
           },
           {
             "group": "Sucesso 200",
-            "type": "Double",
+            "type": "Integer",
             "optional": false,
-            "field": "id",
-            "description": "<p>??.</p>"
+            "field": "status",
+            "description": "<p>Descrição do status do termo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "posto",
+            "description": "<p>Local do posto.</p>"
           },
           {
             "group": "Sucesso 200",
             "type": "Integer",
             "optional": false,
             "field": "numeroCaceal",
-            "description": "<p>CACEAL.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Double",
-            "optional": false,
-            "field": "numeroPessoa",
-            "description": "<p>Número identificador da pessoa jurídica.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "restricao",
-            "description": "<p>Natureza Jurídica do contribuinte.</p>"
+            "description": "<p>Número de incrição estadual.</p>"
           },
           {
             "group": "Sucesso 200",
             "type": "Integer",
             "optional": false,
-            "field": "restricao.codigo",
-            "description": "<p>Código da Natureza Jurídica do contribuinte.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "restricao.descricao",
-            "description": "<p>Descrição da Natureza Jurídica do contribuinte.</p>"
+            "field": "papel",
+            "description": "<p>(Emitente/Adquirinte/Fiel Depositário/...).</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n    \"codigoTipoRestricao\": \"string\",\n    \"dataCompetencia\": \"2017-08-16T12:45:53.384Z\",\n    \"descricaoRestricao\": \"string\",\n    \"id\": 0,\n    \"numeroCaceal\": 0,\n    \"numeroPessoa\": 0,\n    \"restricao\": {\n      \"codigo\": 0,\n      \"descricao\": \"string\"\n    },\n    \"solucao\": \"string\"\n  }\n]",
+          "content": "[\n  {\n    \"numeroTermo\": 16081,\n    \"dataEmissao\": \"2017-08-10T14:18:48.000+0000\",\n    \"codigoStatus\": 12,\n    \"status\": \"Pendente\",\n    \"posto\": \"INFRAESTRUTURA\",\n    \"numeroCaceal\": 24002198,\n    \"papel\": \"Emitente\"\n  }\n]",
           "type": "json"
         }
       ]
@@ -1256,13 +1263,13 @@
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/contribuinte/obterRestricoes/0\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/termoApreensao/consultar\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "./sfz_cadastro.js",
-    "groupTitle": "contribuinte"
+    "filename": "./sfz_fronteiras.js",
+    "groupTitle": "fronteiras"
   },
   {
     "type": "post",
@@ -1270,7 +1277,7 @@
     "title": "consultarAntecipado",
     "name": "consultarAntecipado",
     "description": "<p>Consulta DAR antecipado e FECOEP.</p>",
-    "group": "dar",
+    "group": "fronteiras",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -1432,28 +1439,97 @@
       ]
     },
     "filename": "./sfz_fronteiras.js",
-    "groupTitle": "dar"
+    "groupTitle": "fronteiras"
   },
   {
     "type": "post",
-    "url": "/sfz_ficha_funcional_api/api/public/fichaFuncional",
-    "title": "fichaFuncional",
-    "name": "fichaFuncional",
-    "description": "<p>Consulta ficha dos funcionários da SEFAZ/AL.</p>",
-    "group": "fichafuncional",
+    "url": "/api/public/antecipacao/consultarValoresAntecipados",
+    "title": "consultarValoresAntecipados",
+    "name": "consultarValoresAntecipados",
+    "description": "<p>Consulta valores antecipado e FECOEP.</p>",
+    "group": "fronteiras",
     "version": "1.0.0",
-    "header": {
+    "parameter": {
       "fields": {
-        "Header": [
+        "Parameter": [
           {
-            "group": "Header",
-            "type": "String",
+            "group": "Parameter",
+            "type": "Integer",
             "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
+            "field": "competencia",
+            "description": "<p>Competência mm/aaaa</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "numeroCaceal",
+            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
           }
         ]
       }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "antecipados",
+            "description": "<p>Lista de valores antecipados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "antecipados.sequencialAntecipacao",
+            "description": "<p>Número sequencial de antecipação.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "antecipados.dataVencimento",
+            "description": "<p>Data de vencimento.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "antecipados.valorAntecipado",
+            "description": "<p>Valor antecipado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "antecipados.numeroCaceal",
+            "description": "<p>Número de inscrição estadual.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "antecipados.codigoTributo",
+            "description": "<p>Código do tributo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "antecipados.competencia",
+            "description": "<p>Competência (mm/yyyy).</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n    {\n        \"sequencialAntecipacao\": 402801,\n        \"dataVencimento\": \"2007-03-20T03:00:00.000+0000\",\n        \"valorAntecipado\": 7753.7,\n        \"numeroCaceal\": 24002198,\n        \"codigoTributo\": 15423,\n        \"competencia\": \"2/2007\"\n    }\n]",
+          "type": "json"
+        }
+      ]
     },
     "error": {
       "fields": {
@@ -1481,30 +1557,17 @@
             "description": "<p><code>id</code> do usuário não encontrado.</p>"
           }
         ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 201": [
-          {
-            "group": "Sucesso 201",
-            "type": "Object[]",
-            "optional": false,
-            "field": "dadosdofuncionario",
-            "description": "<p>Dados do fazendário.</p>"
-          }
-        ]
       },
       "examples": [
         {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n    \"nomeFuncionario\": \"FULANO DE TAL\",\n        \"dependentes\": [\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1501839584000,\n                \"dataAlteracao\": 1502287967000,\n                \"id\": 1,\n                \"idDependenteOrigem\": null,\n                \"nome\": \"Filha 1\",\n                \"tipoParentesco\": {\n                    \"codigo\": 3,\n                    \"nome\": \"Filho(a)\"\n                },\n                \"cpf\": \"21000000000\",\n                \"rg\": \"1234\",\n                \"codigoTipoSexo\": \"M\",\n                \"dataNascimento\": 1060041600000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1501839584000,\n                \"alteracao\": 1502287967000\n            },\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1502300000000,\n                \"dataAlteracao\": 1502360906000,\n                \"id\": 29,\n                \"idDependenteOrigem\": 13,\n                \"nome\": \"Mãe\",\n                \"tipoParentesco\": {\n                    \"codigo\": 2,\n                    \"nome\": \"Mãe\"\n                },\n                \"cpf\": \"22222222\",\n                \"rg\": \"2001\",\n                \"codigoTipoSexo\": \"F\",\n                \"dataNascimento\": 1486080000000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1502300000000,\n                \"alteracao\": 1502360906000\n            }\n        ],\n            \"grupos\": [\n                {\n                    \"descricao\": \"Averbações\",\n                    \"dados\": [\n                        {\n                            \"numeroPessoaFuncionario\": 529483,\n                            \"tipoStatus\": \"VALIDO\",\n                            \"numeroPessoaInclusao\": 529483,\n                            \"numeroPessoaAlteracao\": 529483,\n                            \"dataInclusao\": 1502703085000,\n                            \"dataAlteracao\": 1502703085000,\n                            \"id\": 37905,\n                            \"descricao\": \"8 anos\",\n                            \"tipoDadoFichaFuncional\": {\n                                \"id\": 24,\n                                \"nomeTipo\": \"Tempo de Serviço Público\",\n                                \"grupoTipo\": {\n                                    \"id\": 3,\n                                    \"nomeGrupoTipo\": \"Averbações\",\n                                    \"numeroPessoaInclusao\": 100\n                                },\n                                \"numeroPessoaInclusao\": 529483\n                            },\n                            \"tipo\": \"VALIDO\",\n                            \"pessoaFuncionario\": 529483,\n                            \"pessoaInclusao\": 529483,\n                            \"pessoaAlteracao\": 529483,\n                            \"inclusao\": 1502703085000,\n                            \"alteracao\": 1502703085000\n                        }\n                    ]\n                }\n            ]\n}",
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/antecipacao/consultarValoresAntecipados\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "./sfz_fichafuncional.js",
-    "groupTitle": "fichafuncional"
+    "filename": "./sfz_fronteiras.js",
+    "groupTitle": "fronteiras"
   },
   {
     "type": "post",
@@ -1664,8 +1727,8 @@
           {
             "group": "Erro 400",
             "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
           }
         ],
         "Erro 401": [
@@ -1887,7 +1950,7 @@
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/api/public/obterCategorias\"\n}\nResponse Code\n403",
+          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
           "type": "json"
         }
       ]
@@ -2091,7 +2154,7 @@
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/api/public/obterCategorias\"\n}\nResponse Code\n403",
+          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
           "type": "json"
         }
       ]
@@ -2184,13 +2247,85 @@
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/api/public/obterCategorias\"\n}\nResponse Code\n403",
+          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/obterCategorias\"\n}\nResponse Code\n403",
           "type": "json"
         }
       ]
     },
     "filename": "./sfz_glpi.js",
     "groupTitle": "glpi"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/fichaFuncional",
+    "title": "fichaFuncional",
+    "name": "fichaFuncional",
+    "description": "<p>Consulta ficha dos funcionários da SEFAZ/AL.</p>",
+    "group": "gp_mob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 201": [
+          {
+            "group": "Sucesso 201",
+            "type": "Object[]",
+            "optional": false,
+            "field": "dadosdofuncionario",
+            "description": "<p>Dados do fazendário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n    \"nomeFuncionario\": \"FULANO DE TAL\",\n        \"dependentes\": [\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1501839584000,\n                \"dataAlteracao\": 1502287967000,\n                \"id\": 1,\n                \"idDependenteOrigem\": null,\n                \"nome\": \"Filha 1\",\n                \"tipoParentesco\": {\n                    \"codigo\": 3,\n                    \"nome\": \"Filho(a)\"\n                },\n                \"cpf\": \"21000000000\",\n                \"rg\": \"1234\",\n                \"codigoTipoSexo\": \"M\",\n                \"dataNascimento\": 1060041600000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1501839584000,\n                \"alteracao\": 1502287967000\n            },\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1502300000000,\n                \"dataAlteracao\": 1502360906000,\n                \"id\": 29,\n                \"idDependenteOrigem\": 13,\n                \"nome\": \"Mãe\",\n                \"tipoParentesco\": {\n                    \"codigo\": 2,\n                    \"nome\": \"Mãe\"\n                },\n                \"cpf\": \"22222222\",\n                \"rg\": \"2001\",\n                \"codigoTipoSexo\": \"F\",\n                \"dataNascimento\": 1486080000000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1502300000000,\n                \"alteracao\": 1502360906000\n            }\n        ],\n            \"grupos\": [\n                {\n                    \"descricao\": \"Averbações\",\n                    \"dados\": [\n                        {\n                            \"numeroPessoaFuncionario\": 529483,\n                            \"tipoStatus\": \"VALIDO\",\n                            \"numeroPessoaInclusao\": 529483,\n                            \"numeroPessoaAlteracao\": 529483,\n                            \"dataInclusao\": 1502703085000,\n                            \"dataAlteracao\": 1502703085000,\n                            \"id\": 37905,\n                            \"descricao\": \"8 anos\",\n                            \"tipoDadoFichaFuncional\": {\n                                \"id\": 24,\n                                \"nomeTipo\": \"Tempo de Serviço Público\",\n                                \"grupoTipo\": {\n                                    \"id\": 3,\n                                    \"nomeGrupoTipo\": \"Averbações\",\n                                    \"numeroPessoaInclusao\": 100\n                                },\n                                \"numeroPessoaInclusao\": 529483\n                            },\n                            \"tipo\": \"VALIDO\",\n                            \"pessoaFuncionario\": 529483,\n                            \"pessoaInclusao\": 529483,\n                            \"pessoaAlteracao\": 529483,\n                            \"inclusao\": 1502703085000,\n                            \"alteracao\": 1502703085000\n                        }\n                    ]\n                }\n            ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gp_mob_rh"
   },
   {
     "type": "post",
@@ -2501,7 +2636,7 @@
       },
       "examples": [
         {
-          "title": "Request-Example:",
+          "title": "Exemplo de passagem de parâmetros:",
           "content": "{\n  \"descricao\": \"coca cola\",\n  \"dias\": 3,\n  \"latitude\": -9.6432331,\n  \"longitude\": -35.7190686,\n  \"raio\": 10\n}",
           "type": "json"
         }
@@ -2685,12 +2820,1345 @@
     "groupTitle": "nfce"
   },
   {
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar/{cpf}",
+    "title": "adotar",
+    "name": "adotar",
+    "description": "<p>usuário adota uma entidade social.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Código da entidade social.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cpf",
+            "description": "<p>CPF do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "mensagem",
+            "description": "<p>Mensagem de sucesso.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p> <p>apiSuccessExample {String} Exemplo de retorno do sucesso: Operação Realiza com Sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia/alterar\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/denuncia/alterar",
+    "title": "alterar",
+    "name": "alterar",
+    "description": "<p>Altera uma denúncia de notas fiscais não enviadas pelo contribuinte.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "cNF",
+            "description": "<p>Código da nota fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "cnpjDestinatario",
+            "description": "<p>CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpjEmitente",
+            "description": "<p>CNPJ do contribuinte que emitiu a nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "cpfDestinatario",
+            "description": "<p>CPF do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataEmissao",
+            "description": "<p>Data de emissã da nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia",
+            "description": "<p>Descrição da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Identificador da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "numeroECF",
+            "description": "<p>Número do ECF.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "serie",
+            "description": "<p>Série da nota fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "situacao",
+            "description": "<p>Situação da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "subSerie",
+            "description": "<p>Sub série da nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDenuncia",
+            "description": "<p>Código do tipo da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDocumento",
+            "description": "<p>Tipo do documento fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "valor",
+            "description": "<p>Valor total da nota.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n \"cNF\": 987,\n \"cnpjDestinatario\": \"09326760000168\",\n \"cnpjEmitente\": \"09326760000168\",\n \"cpfDestinatario\": \"01364854481\",\n \"dataEmissao\": \"16/08/2017\",\n \"denuncia\": \"Uma denúncia\",\n \"id\": 45,\n \"numeroECF\": \"123456789\",\n \"serie\": \"A\",\n \"situacao\": \"Pendente\",\n \"subSerie\": 1,\n \"tipoDenuncia\": \"1\",\n \"tipoDocumento\": \"NFe\",\n \"valor\": 123.45\n}\n\napiSuccessExample {String} Exemplo de retorno do sucesso:\n[]",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "codigo",
+            "description": "<p>Código da denuncia criada.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia/alterar\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/usuario/alterarSenha",
+    "title": "alterarSenha",
+    "name": "alterarSenha",
+    "description": "<p>Altera senha do usuário.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fraseEmail",
+            "description": "<p>Frase de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "resposta",
+            "description": "<p>Resposta de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "login",
+            "description": "<p>CFPF ou CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "senha",
+            "description": "<p>Senha antiga do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "senhaNova",
+            "description": "<p>Senha nova do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n  \"fraseEmail\": \"TESTETESTE\",\n  \"resposta\": \"TESTE1\",\n  \"login\": \"87199599404\",\n  \"senha\": \"123456\",\n  \"senhaNova\": \"123456\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Result",
+            "description": "<p>Mensagem de sucesso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "Operação Realizada com Sucesso!",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/usuario/alterarSenha\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/bilheteContemplado",
+    "title": "bilheteContemplado",
+    "name": "bilheteContemplado",
+    "description": "<p>Consulta de bilhetes contemplados nos sorteios.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "documento",
+            "description": "<p>CFP ou CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "sequencialSorteio",
+            "description": "<p>Número sequencial do sorteio.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n    \"documento\": \"03918819493\",\n    \"sequencialSorteio\": 37\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Bilhetes",
+            "description": "<p>Lista de bilhetes sorteados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "Bilhetes.valorPremio",
+            "description": "<p>Valor do prêmio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Bilhetes.bilhete",
+            "description": "<p>Dados do Bilhete premiado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Bilhetes.bilhete.numero",
+            "description": "<p>Bilhete Número do bilhete sorteado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "Bilhetes.bilhete.sorteio",
+            "description": "<p>Dados do sorteio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "Bilhetes.bilhete.sequencial",
+            "description": "<p>Número sequencial do sorteio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "Bilhetes.bilhete.codigoSorteio",
+            "description": "<p>Códgo do sorteio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Bilhetes.bilhete.descricao",
+            "description": "<p>Descrição do sorteio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Bilhetes.bilhete.dataRealizacao",
+            "description": "<p>Data de realização do sorteio.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Bilhetes.bilhete.numeroDocumento",
+            "description": "<p>Número do CPF ou CNPJ sorteado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n    {\n        \"valorPremio\": 50000,\n        \"bilhete\": {\n            \"numeroBilhete\": 1660,\n            \"sorteio\": {\n                \"sequencial\": 37,\n                \"codigoSorteio\": 29,\n                \"descricao\": \"Sorteio do dia do Consumidor 2015\",\n                \"dataRealizacao\": \"2016-04-11T00:00:00.000+0000\"\n            },\n            \"numeroDocumento\": \"03918819493\"\n        }\n    }\n]",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/bilheteContemplado\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/consultarCredito/{CPFCNPJ}",
+    "title": "consultarCredito",
+    "name": "consultarCredito",
+    "description": "<p>Consulta créditos do usuário.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "CPFCNPJ",
+            "description": "<p>CPF ou CNPJ do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Double",
+            "optional": false,
+            "field": "valorCredito",
+            "description": "<p>Valor de créditos disponíveis ao usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n    \"valorCredito\": 71.5\n}",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/consultarCredito/0\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/entidadeSocial",
+    "title": "consultarEntidade",
+    "name": "consultarEntidade",
+    "description": "<p>Consulta todas entidades sociais.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "entidades",
+            "description": "<p>Lista de entidades sociais.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Código da entidade social.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>CNPJ da entidade.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "razaoSocial",
+            "description": "<p>Razão social da entidade.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p> <p>apiSuccessExample {String} Exemplo de retorno do sucesso: [ { &quot;id&quot;: 275, &quot;cnpj&quot;: &quot;35561208000164&quot;, &quot;razaoSocial&quot;: &quot;Família Alagoana Down&quot; }, { &quot;id&quot;: 7983, &quot;cnpj&quot;: &quot;12450268000104&quot;, &quot;razaoSocial&quot;: &quot;ASSOCIACAO PESTALOZZI DE MACEIO&quot; } ]</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/entidadeSocial\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/denuncia",
+    "title": "denuncia",
+    "name": "denuncia",
+    "description": "<p>Consultar denúncias de um determinado contribuinte.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>Frase de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataFim",
+            "description": "<p>Resposta de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataInicio",
+            "description": "<p>CFPF ou CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDenuncia",
+            "description": "<p>Senha nova do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n  \"cnpj\": \"09326760000168\",\n  \"dataFim\": \"09/08/2017\",\n  \"dataInicio\": \"01/08/2017\",\n  \"tipoDenuncia\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "denuncias",
+            "description": "<p>lista de denúncias.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDocumento",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "cnpjEmitente",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "cnpjDestinatario",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "cNF",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "serie",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "subSerie",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "numeroECF",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dataEmissao",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "valor",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "cpfCnpjDenunciante",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "responsavelDenuncia",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDenuncia",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricaoTipoDenuncia",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "situacao",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricaoSituacao",
+            "description": "<p>Mensagem de sucesso</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dataDenuncia",
+            "description": "<p>Mensagem de sucesso</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n    \"id\": 17,\n    \"tipoDocumento\": \"NFe\",\n    \"cnpjEmitente\": \"09326760000168\",\n    \"cnpjDestinatario\": \"09326760000168\",\n    \"cpfDestinatario\": \"11\",\n    \"cNF\": 1,\n    \"serie\": \"a\",\n    \"subSerie\": 1,\n    \"numeroECF\": \"123\",\n    \"dataEmissao\": \"2017-07-08T00:00:00.000+0000\",\n    \"valor\": 2.5,\n    \"cpfCnpjDenunciante\": \"marcelomalta\",\n    \"denuncia\": \"denuncia\",\n    \"responsavelDenuncia\": \"responsavel\",\n    \"tipoDenuncia\": \"1\",\n    \"descricaoTipoDenuncia\": \"Teste\",\n    \"situacao\": \"Pendente\",\n    \"descricaoSituacao\": null,\n    \"dataDenuncia\": \"2017-08-07T20:04:00.000+0000\"\n  }\n]",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/denuncia/incluir",
+    "title": "incluir",
+    "name": "incluir",
+    "description": "<p>Realiza denúncia de notas fiscais não enviadas pelo contribuinte.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "cNF",
+            "description": "<p>Código da nota fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "cnpjDestinatario",
+            "description": "<p>CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpjEmitente",
+            "description": "<p>CNPJ do contribuinte que emitiu a nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "cpfDestinatario",
+            "description": "<p>CPF do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataEmissao",
+            "description": "<p>Data de emissã da nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia",
+            "description": "<p>Descrição da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "numeroECF",
+            "description": "<p>Número do ECF.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "serie",
+            "description": "<p>Série da nota fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "situacao",
+            "description": "<p>Situação da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": true,
+            "field": "subSerie",
+            "description": "<p>Sub série da nota.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDenuncia",
+            "description": "<p>Código do tipo da denúncia.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDocumento",
+            "description": "<p>Tipo do documento fiscal.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "valor",
+            "description": "<p>Valor total da nota.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n \"cNF\": 987,\n \"cnpjDestinatario\": \"09326760000168\",\n \"cnpjEmitente\": \"09326760000168\",\n \"cpfDestinatario\": \"01364854481\",\n \"dataEmissao\": \"16/08/2017\",\n \"denuncia\": \"Uma denúncia\",\n \"numeroECF\": \"123456789\",\n \"serie\": \"A\",\n \"situacao\": \"Pendente\",\n \"subSerie\": 1,\n \"tipoDenuncia\": \"1\",\n \"tipoDocumento\": \"NFe\",\n \"valor\": 123.45\n}\n\napiSuccessExample {String} Exemplo de retorno do sucesso:\n47",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "codigo",
+            "description": "<p>Código da denuncia criada.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia/incluir\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/notas",
+    "title": "notas",
+    "name": "notas",
+    "description": "<p>Consulta notas emitidas por um contribuinte.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataCompetencia",
+            "description": "<p>Frase de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "numeroDestinatario",
+            "description": "<p>Resposta de segurança.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n  \"dataCompetencia\": \"201603\",\n  \"numeroDestinatario\": \"12270435000135\"\n}\n\napiSuccessExample {String} Exemplo de retorno do sucesso:\n[\n   {\n       \"dataEmissao\": \"2016-03-01T12:54:19.000+0000\",\n       \"numeroNotaFiscal\": \"67305\",\n       \"tipoNotaFiscal\": \"01\",\n       \"valorTotal\": 304,\n       \"descricaoContribuinte\": \"CASA DAS TINTAS LTDA\",\n       \"descricaoMotivoAnulacao\": \"CFOP: 5405\",\n       \"numeroEmitente\": \"09326760000168\",\n       \"valorCredito\": null\n   },\n   {\n       \"dataEmissao\": \"2016-03-02T00:00:00.000+0000\",\n       \"numeroNotaFiscal\": \"42150\",\n       \"tipoNotaFiscal\": \"CF\",\n       \"valorTotal\": 349,\n       \"descricaoContribuinte\": \"MAGAZINE LUIZA S/A\",\n       \"descricaoMotivoAnulacao\": null,\n       \"numeroEmitente\": \"47960950082349\",\n       \"valorCredito\": null\n   }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "notas",
+            "description": "<p>Lista de notas.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.dataEmissao",
+            "description": "<p>Data de emissão da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.numeroNotaFiscal",
+            "description": "<p>Número da nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.tipoNotaFiscal",
+            "description": "<p>Tipo da nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.valorTotal",
+            "description": "<p>Valor total da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.descricaoContribuinte",
+            "description": "<p>Descrição contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.descricaoMotivoAnulacao",
+            "description": "<p>Descrição motivo de anulação.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.numeroEmitente",
+            "description": "<p>Número de CNPJ do emitente.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "notas.valorCredito",
+            "description": "<p>Valor de crédito gerado.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/notas\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
     "type": "post",
     "url": "/api/public/processosAtivos/consultarPorNumeroProcesso",
     "title": "consultarPorNumeroProcesso",
     "name": "consultarPorNumeroProcesso",
     "description": "<p>Consulta Processos ativos por número de processo.</p>",
-    "group": "processo_ativo",
+    "group": "processo",
     "version": "1.0.0",
     "parameter": {
       "fields": {
@@ -2868,327 +4336,6 @@
       ]
     },
     "filename": "./sfz_processo.js",
-    "groupTitle": "processo_ativo"
-  },
-  {
-    "type": "post",
-    "url": "/api/public/termoApreensao/consultar",
-    "title": "consultar",
-    "name": "consultar",
-    "description": "<p>Consulta os termos de apreensão de um determinado Contribuinte.</p>",
-    "group": "termo_apreensao",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "numeroCaceal",
-            "description": "<p>Número da inscrição estadual do Contribuinte</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "periodoInicio",
-            "description": "<p>Data de início da pesquisa.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "periodoTermino",
-            "description": "<p>Data de término da pesquisa.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "numeroTermo",
-            "description": "<p>Número do termo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "dataEmissao",
-            "description": "<p>Data de emissão do termo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "codigoStatus",
-            "description": "<p>Código de status do termo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "status",
-            "description": "<p>Descrição do status do termo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "posto",
-            "description": "<p>Local do posto.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "numeroCaceal",
-            "description": "<p>Número de incrição estadual.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "papel",
-            "description": "<p>(Emitente/Adquirinte/Fiel Depositário/...).</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n    \"numeroTermo\": 16081,\n    \"dataEmissao\": \"2017-08-10T14:18:48.000+0000\",\n    \"codigoStatus\": 12,\n    \"status\": \"Pendente\",\n    \"posto\": \"INFRAESTRUTURA\",\n    \"numeroCaceal\": 24002198,\n    \"papel\": \"Emitente\"\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/termoApreensao/consultar\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_fronteiras.js",
-    "groupTitle": "termo_apreensao"
-  },
-  {
-    "type": "post",
-    "url": "/api/public/usuario/alterarSenha",
-    "title": "alterarSenha",
-    "name": "alterarSenha",
-    "description": "<p>Altera senha do usuário.</p>",
-    "group": "usuario",
-    "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "numeroProcesso",
-            "description": "<p>Número.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": true,
-            "field": "ano",
-            "description": "<p>Ano do processo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "codigoAssunto",
-            "description": "<p>Código do assunto.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "dadosOrigem",
-            "description": "<p>Dados de origem.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "dataAcatamento",
-            "description": "<p>Data de acatamento do processo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "dataProtocolo",
-            "description": "<p>Data do protocolo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "descricaoAssunto",
-            "description": "<p>Descrição do assunto.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "descricaoOrgao",
-            "description": "<p>Descrição do órgão.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "nomeInteressado",
-            "description": "<p>Nome do interessado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": true,
-            "field": "numeroInscricao",
-            "description": "<p>Número de inscrição.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": true,
-            "field": "numeroProtocolo",
-            "description": "<p>Número de protocolo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "observacao",
-            "description": "<p>Observação.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": true,
-            "field": "orgao",
-            "description": "<p>Órgão.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "setor",
-            "description": "<p>Setor.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "situacao",
-            "description": "<p>Situação do protocolo.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": true,
-            "field": "tipoInscricao",
-            "description": "<p>Tipo de inscrição.</p>"
-          }
-        ],
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "ultimaMovimentacao",
-            "description": "<p>Data de Última movimentação.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n  \"codigo\": 20,\n  \"mensagem\": \"Autorização aplicativo pendente.\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/processosAtivos/consultarPorNumeroProcesso\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_nfcidada.js",
-    "groupTitle": "usuario"
+    "groupTitle": "processo"
   }
 ]
