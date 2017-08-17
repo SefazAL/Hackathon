@@ -215,25 +215,12 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/cadastro/api/public/contribuinte/obterContribuinte",
+    "url": "/sfz_cadastro_api/api/public/contribuinte/obterContribuinte",
     "title": "obterContribuinte",
     "name": "obterContribuinte",
     "description": "<p>Obtem os dados de um contribuinte.....</p>",
     "group": "cadastro",
     "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "cnpjNumeroPessoaOuCaceal",
-            "description": "<p>CNPJ, Número pessoa ou Caceal.</p>"
-          }
-        ]
-      }
-    },
     "header": {
       "fields": {
         "Header": [
@@ -243,6 +230,19 @@ define({ "api": [
             "optional": false,
             "field": "token",
             "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "cnpjNumeroPessoaOuCaceal",
+            "description": "<p>CNPJ, Número pessoa ou Caceal.</p>"
           }
         ]
       }
@@ -398,25 +398,12 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/cadastro/api/public/contribuinte/obterRestricoes",
+    "url": "/sfz_cadastro_api/api/public/contribuinte/obterRestricoes/{caceal}",
     "title": "obterRestricoes",
     "name": "obterRestricoes",
     "description": "<p>Obtem as restrições cadastrais de um contribuinte.</p>",
     "group": "cadastro",
     "version": "1.0.0",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "caceal",
-            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
-          }
-        ]
-      }
-    },
     "header": {
       "fields": {
         "Header": [
@@ -426,6 +413,19 @@ define({ "api": [
             "optional": false,
             "field": "token",
             "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "caceal",
+            "description": "<p>Número da inscrição estadual do Contribuinte.</p>"
           }
         ]
       }
@@ -536,7 +536,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/contribuinte/obterRestricoes/0\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-03T12:01:17.964+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz_cadastro_api/api/public/contribuinte/obterRestricoes/0\"\n}",
           "type": "json"
         }
       ]
@@ -1263,7 +1263,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/termoApreensao/consultar\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz_fronteiras_api/api/public/termoApreensao/consultar\"\n}",
           "type": "json"
         }
       ]
@@ -1273,7 +1273,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/public/dar/consultarAntecipado",
+    "url": "/sfz_fronteiras_api/api/public/dar/consultarAntecipado",
     "title": "consultarAntecipado",
     "name": "consultarAntecipado",
     "description": "<p>Consulta DAR antecipado e FECOEP.</p>",
@@ -1433,7 +1433,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/dar/consultarAntecipado\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz_fronteiras_api/api/public/dar/consultarAntecipado\"\n}",
           "type": "json"
         }
       ]
@@ -1443,7 +1443,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/api/public/antecipacao/consultarValoresAntecipados",
+    "url": "/sfz_fronteiras_api/api/public/antecipacao/consultarValoresAntecipados",
     "title": "consultarValoresAntecipados",
     "name": "consultarValoresAntecipados",
     "description": "<p>Consulta valores antecipado e FECOEP.</p>",
@@ -1561,7 +1561,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/api/public/antecipacao/consultarValoresAntecipados\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz_fronteiras_api/api/public/antecipacao/consultarValoresAntecipados\"\n}",
           "type": "json"
         }
       ]
@@ -1760,197 +1760,6 @@ define({ "api": [
         {
           "title": "Exemplo de retorno do erro:",
           "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"chamadoDTO\",\n          \"field\": \"idCategoria\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
-  },
-  {
-    "type": "get",
-    "url": "/sfz_glpi_api/api/public/chamado",
-    "title": "Chamados do Usuário",
-    "name": "chamado",
-    "description": "<p>Obter Chamados para o Usuário</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados",
-            "description": "<p>Lista de chamados.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.id",
-            "description": "<p>Id do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.titulo",
-            "description": "<p>Título do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.descricao",
-            "description": "<p>Descrição do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.solucao",
-            "description": "<p>Solução para o chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAbertura",
-            "description": "<p>Data da abertura do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataFechamento",
-            "description": "<p>Data do encerramento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.status",
-            "description": "<p>Status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAgendamento",
-            "description": "<p>Data de agendamento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservado",
-            "description": "<p>Reservado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservavel",
-            "description": "<p>Reservável.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataCriacao",
-            "description": "<p>Data da criação do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados.statusChamado",
-            "description": "<p>Lista de status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.statusChamado.id",
-            "description": "<p>Lista de status ddo chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.dataAbertura",
-            "description": "<p>Data abertura do status.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.descricao",
-            "description": "<p>Descrição do status.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
           "type": "json"
         }
       ]
@@ -2164,6 +1973,197 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/sfz_glpi_api/api/public/chamado",
+    "title": "Chamados do Usuário",
+    "name": "chamado",
+    "description": "<p>Obter Chamados para o Usuário</p>",
+    "group": "glpi",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "chamados",
+            "description": "<p>Lista de chamados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.id",
+            "description": "<p>Id do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.titulo",
+            "description": "<p>Título do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.descricao",
+            "description": "<p>Descrição do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.solucao",
+            "description": "<p>Solução para o chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataAbertura",
+            "description": "<p>Data da abertura do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataFechamento",
+            "description": "<p>Data do encerramento do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.idCategoria",
+            "description": "<p>Id da categoria.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.status",
+            "description": "<p>Status do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataAgendamento",
+            "description": "<p>Data de agendamento do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.reservado",
+            "description": "<p>Reservado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.reservavel",
+            "description": "<p>Reservável.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataCriacao",
+            "description": "<p>Data da criação do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "chamados.statusChamado",
+            "description": "<p>Lista de status do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.statusChamado.id",
+            "description": "<p>Lista de status ddo chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.statusChamado.dataAbertura",
+            "description": "<p>Data abertura do status.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.statusChamado.descricao",
+            "description": "<p>Descrição do status.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_glpi.js",
+    "groupTitle": "glpi"
+  },
+  {
+    "type": "get",
     "url": "/sfz_glpi_api/api/public/obterCategorias",
     "title": "obterCategorias",
     "name": "obterCategorias",
@@ -2256,12 +2256,336 @@ define({ "api": [
     "groupTitle": "glpi"
   },
   {
-    "type": "post",
-    "url": "/sfz_ficha_funcional_api/api/public/fichaFuncional",
-    "title": "fichaFuncional",
-    "name": "fichaFuncional",
-    "description": "<p>Consulta ficha dos funcionários da SEFAZ/AL.</p>",
-    "group": "gp_mob_rh",
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/fichaFuncional/{id}",
+    "title": "Consultar Ficha Funcional por id",
+    "name": "consultar_ficha_funcional_por_id",
+    "description": "<p>Carregar ficha funcional do id do funcionário.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dado ficha.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "nomeFuncionario",
+            "description": "<p>Nome do funcionário.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "dependentes",
+            "description": "<p>Lista de dependentes.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.numeroPessoaFuncionario",
+            "description": "<p>Número pessoa do funcionário.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dependentes.tipoStatus",
+            "description": "<p>Tipo de status.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.numeroPessoaInclusao",
+            "description": "<p>Número pessoa de quem incluiu os dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.numeroPessoaAlteracao",
+            "description": "<p>Número pessoa de quem incluiu os dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.dataInclusao",
+            "description": "<p>Data de inclusão dos dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.dataAlteracao",
+            "description": "<p>Data de alteração dos dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "dependentes.id",
+            "description": "<p>Identificador.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dependentes.idDependenteOrigem",
+            "description": "<p>Identificador da origem do dependente.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dependentes.nome",
+            "description": "<p>Nome do dependente.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "dependentes.tipoParentesco",
+            "description": "<p>Tipo de parentesco.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dependentes.tipoParentesco.codigo",
+            "description": "<p>Código do tipo de parentesco.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "dependentes.tipoParentesco.nome",
+            "description": "<p>Nome do tipo de parentesco.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "grupos",
+            "description": "<p>Listas de grupos do fazendário.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.descricao",
+            "description": "<p>em base64.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "grupos.dados",
+            "description": "<p>em base64.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.numeroPessoaFuncionario",
+            "description": "<p>Número pessoa do funcionário.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoStatus",
+            "description": "<p>Tipo de status.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.numeroPessoaInclusao",
+            "description": "<p>Número pessoa de quem incluiu os dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.numeroPessoaAlteracao",
+            "description": "<p>Número pessoa de quem incluiu os dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.dataInclusao",
+            "description": "<p>Data de inclusão dos dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.dataAlteracao",
+            "description": "<p>Data de alteração dos dados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "grupos.dados.id",
+            "description": "<p>Identificador.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.descricao",
+            "description": "<p>Descrição do grupo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional",
+            "description": "<p>Tipo do dado da ficha funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.id",
+            "description": "<p>Identificador do tipo do dado da ficha funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.nomeTipo",
+            "description": "<p>Nome do tipo do dado da ficha funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.grupoTipo",
+            "description": "<p>Grupo a que pertence o tipo funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.grupoTipo.id",
+            "description": "<p>Identificador do grupo a que pertence o tipo funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.grupoTipo.nomeGrupoTipo",
+            "description": "<p>Nome do grupo a que pertence o tipo funcional.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.grupoTipo.numeroPessoaInclusao",
+            "description": "<p>Número da pessoa que incluiu o grupo do tipo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipoDadoFichaFuncional.numeroPessoaInclusao",
+            "description": "<p>Número da pessoa que incluiu o tipo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "grupos.dados.tipo",
+            "description": "<p>Tipo do dado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n   \"nomeFuncionario\": \"FAZENDARIO 1\",\n   \"dependentes\": [\n       {\n           \"numeroPessoaFuncionario\": 529483,\n           \"tipoStatus\": \"VALIDO\",\n           \"numeroPessoaInclusao\": 529483,\n           \"numeroPessoaAlteracao\": 529483,\n           \"dataInclusao\": 1501839584000,\n           \"dataAlteracao\": 1502287967000,\n           \"id\": 1,\n           \"idDependenteOrigem\": null,\n           \"nome\": \"Filho 1\",\n           \"tipoParentesco\": {\n               \"codigo\": 3,\n               \"nome\": \"Filho(a)\"\n           }\n   ],\n   \"grupos\": [\n       {\n           \"descricao\": \"Averbações\",\n           \"dados\": [\n               {\n                   \"numeroPessoaFuncionario\": 529483,\n                   \"tipoStatus\": \"VALIDO\",\n                   \"numeroPessoaInclusao\": 529483,\n                   \"numeroPessoaAlteracao\": 529483,\n                   \"dataInclusao\": 1502703085000,\n                   \"dataAlteracao\": 1502703085000,\n                   \"id\": 37905,\n                   \"descricao\": \"8 anos\",\n                   \"tipoDadoFichaFuncional\": {\n                       \"id\": 24,\n                       \"nomeTipo\": \"Tempo de Serviço Público\",\n                       \"grupoTipo\": {\n                           \"id\": 3,\n                           \"nomeGrupoTipo\": \"Averbações\",\n                           \"numeroPessoaInclusao\": 100\n                       },\n                       \"numeroPessoaInclusao\": 529483\n                   },\n                   \"pessoaFuncionario\": 529483,\n                   \"pessoaInclusao\": 529483,\n                   \"pessoaAlteracao\": 529483,\n                   \"inclusao\": 1502703085000,\n                   \"alteracao\": 1502703085000,\n                   \"tipo\": \"VALIDO\"\n               }\n           ]\n       }\n   ]\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/grupoTipoDadoFichaFuncional",
+    "title": "Consultar grupos de dados",
+    "name": "consultar_grupo_de_dados",
+    "description": "<p>Consultar todos os grupos de dados.</p>",
+    "group": "gpmob_rh",
     "version": "1.0.0",
     "header": {
       "fields": {
@@ -2278,6 +2602,14 @@ define({ "api": [
     },
     "error": {
       "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
         "Erro 401": [
           {
             "group": "Erro 401",
@@ -2305,27 +2637,925 @@ define({ "api": [
       }
     },
     "success": {
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n       \"id\": 2,\n       \"nomeGrupoTipo\": \"Portarias\",\n       \"numeroPessoaInclusao\": 100\n   }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/tipoDadoFichaFuncional",
+    "title": "Consultar tipos de dados",
+    "name": "consultar_tipos_de_dados",
+    "description": "<p>Consultar todos os tipos de dados.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
       "fields": {
-        "Sucesso 201": [
+        "Header": [
           {
-            "group": "Sucesso 201",
-            "type": "Object[]",
+            "group": "Header",
+            "type": "String",
             "optional": false,
-            "field": "dadosdofuncionario",
-            "description": "<p>Dados do fazendário.</p>"
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n        \"codigo\": 2,\n        \"nome\": \"Mãe\"\n   }\n]",
+          "type": "json"
+        },
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/tipoDadoFichaFuncional",
+    "title": "Consultar tipos de dados",
+    "name": "consultar_tipos_de_dados",
+    "description": "<p>Consultar todos os tipos de dados.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/tipoDadoFichaFuncional/grupo/{idGrupo}",
+    "title": "Consultar tipos de dados por grupo",
+    "name": "consultar_tipos_de_dados_por_grupo",
+    "description": "<p>Consultar todos os tipos de dados por grupo.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "idGrupo",
+            "description": "<p>Id do grupo de dados.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n       \"id\": 27,\n       \"nomeTipo\": \"Assessoramentos\",\n       \"grupoTipo\": {\n           \"id\": 2,\n           \"nomeGrupoTipo\": \"Portarias\",\n           \"numeroPessoaInclusao\": 100\n       },\n       \"numeroPessoaInclusao\": 529483\n   }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/dadoFichaFuncional/anexo/{id}",
+    "title": "Download anexo dado ficha",
+    "name": "download_anexo_dado_ficha",
+    "description": "<p>Baixar arquivo anexo do dado fucha</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dado ficha.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamado.id",
+            "description": "<p>Id do dependente.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Anexo",
+            "description": "<p>em base64.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n    \"nomeFuncionario\": \"FULANO DE TAL\",\n        \"dependentes\": [\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1501839584000,\n                \"dataAlteracao\": 1502287967000,\n                \"id\": 1,\n                \"idDependenteOrigem\": null,\n                \"nome\": \"Filha 1\",\n                \"tipoParentesco\": {\n                    \"codigo\": 3,\n                    \"nome\": \"Filho(a)\"\n                },\n                \"cpf\": \"21000000000\",\n                \"rg\": \"1234\",\n                \"codigoTipoSexo\": \"M\",\n                \"dataNascimento\": 1060041600000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1501839584000,\n                \"alteracao\": 1502287967000\n            },\n            {\n                \"numeroPessoaFuncionario\": 529483,\n                \"tipoStatus\": \"VALIDO\",\n                \"numeroPessoaInclusao\": 529483,\n                \"numeroPessoaAlteracao\": 529483,\n                \"dataInclusao\": 1502300000000,\n                \"dataAlteracao\": 1502360906000,\n                \"id\": 29,\n                \"idDependenteOrigem\": 13,\n                \"nome\": \"Mãe\",\n                \"tipoParentesco\": {\n                    \"codigo\": 2,\n                    \"nome\": \"Mãe\"\n                },\n                \"cpf\": \"22222222\",\n                \"rg\": \"2001\",\n                \"codigoTipoSexo\": \"F\",\n                \"dataNascimento\": 1486080000000,\n                \"tipo\": \"VALIDO\",\n                \"pessoaFuncionario\": 529483,\n                \"pessoaInclusao\": 529483,\n                \"pessoaAlteracao\": 529483,\n                \"inclusao\": 1502300000000,\n                \"alteracao\": 1502360906000\n            }\n        ],\n            \"grupos\": [\n                {\n                    \"descricao\": \"Averbações\",\n                    \"dados\": [\n                        {\n                            \"numeroPessoaFuncionario\": 529483,\n                            \"tipoStatus\": \"VALIDO\",\n                            \"numeroPessoaInclusao\": 529483,\n                            \"numeroPessoaAlteracao\": 529483,\n                            \"dataInclusao\": 1502703085000,\n                            \"dataAlteracao\": 1502703085000,\n                            \"id\": 37905,\n                            \"descricao\": \"8 anos\",\n                            \"tipoDadoFichaFuncional\": {\n                                \"id\": 24,\n                                \"nomeTipo\": \"Tempo de Serviço Público\",\n                                \"grupoTipo\": {\n                                    \"id\": 3,\n                                    \"nomeGrupoTipo\": \"Averbações\",\n                                    \"numeroPessoaInclusao\": 100\n                                },\n                                \"numeroPessoaInclusao\": 529483\n                            },\n                            \"tipo\": \"VALIDO\",\n                            \"pessoaFuncionario\": 529483,\n                            \"pessoaInclusao\": 529483,\n                            \"pessoaAlteracao\": 529483,\n                            \"inclusao\": 1502703085000,\n                            \"alteracao\": 1502703085000\n                        }\n                    ]\n                }\n            ]\n}",
+          "content": "{\n  \"id\": \"51\",\n  \"anexo\":\"CT6aZvZvCrzYpbu2PfxHAg8l+obGmOt1vaJQBAPkvI5nM5fWyyWWTU1tfuA+...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": \"Dependente não possui anexo.\",\n  \"fieldErrors\": null\n}\nResponse Code\n500",
           "type": "json"
         }
       ]
     },
     "filename": "./sfz_fichafuncional.js",
-    "groupTitle": "gp_mob_rh"
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_ficha_funcional_api/api/public/dependenteFuncionario/anexo/{id}",
+    "title": "Download anexo dependente",
+    "name": "download_anexo_dependente",
+    "description": "<p>Baixar arquivo anexo do dependente</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dependente.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamado.id",
+            "description": "<p>Id do dependente.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Anexo",
+            "description": "<p>em base64.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n  \"id\": \"51\",\n  \"anexo\":\"CT6aZvZvCrzYpbu2PfxHAg8l+obGmOt1vaJQBAPkvI5nM5fWyyWWTU1tfuA+...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": \"Dependente não possui anexo.\",\n  \"fieldErrors\": null\n}\nResponse Code\n500",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/dadoFichaFuncional",
+    "title": "Solicitar alteração de dado ficha",
+    "name": "solicitar_altera__o_de_dependente",
+    "description": "<p>Solicitar uma alteração nos dependentes.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dado ficha</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Descrição do dado ficha.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "tipoDadoFichaFuncional",
+            "description": "<p>Id Tipo parentesco do depentente.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Opera",
+            "description": "<p>ção realizada com sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n    \"numeroPessoaFuncionario\": 529483,\n    \"tipoStatus\": \"AGUARDANDO_APROVACAO\",\n    \"numeroPessoaInclusao\": 529483,\n    \"numeroPessoaAlteracao\": 529483,\n    \"dataInclusao\": 1502977953000,\n    \"dataAlteracao\": 1503005283728,\n    \"id\": 37923,\n    \"descricao\": \"João\",\n    \"tipoDadoFichaFuncional\": {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    },\n    \"pessoaFuncionario\": 529483,\n    \"pessoaInclusao\": 529483,\n    \"pessoaAlteracao\": 529483,\n    \"inclusao\": 1502977953000,\n    \"alteracao\": 1503005283728,\n    \"tipo\": \"AGUARDANDO_APROVACAO\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"dadoFichaFuncionalDTO\",\n          \"field\": \"tipoDadoFichaFuncional\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/dependenteFuncionario",
+    "title": "Solicitar alteração de dependente",
+    "name": "solicitar_altera__o_de_dependente",
+    "description": "<p>Solicitar uma alteração nos dependentes.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dependente</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "nome",
+            "description": "<p>Nome do dependente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "tipoParentesco",
+            "description": "<p>Id do tipo parentesco do depentente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cpf",
+            "description": "<p>CPF do dependente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "rg",
+            "description": "<p>RG do dependente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "codigoTipoSexo",
+            "description": "<p>Código do tipo do sexo(M ou F).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Date",
+            "optional": false,
+            "field": "dataNascimento",
+            "description": "<p>Data de nascimento do dependente.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Opera",
+            "description": "<p>ção realizada com sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n   \"numeroPessoaFuncionario\": 529483,\n   \"tipoStatus\": \"AGUARDANDO_APROVACAO\",\n   \"numeroPessoaInclusao\": 529483,\n   \"numeroPessoaAlteracao\": 529483,\n   \"dataInclusao\": 1503004761407,\n   \"dataAlteracao\": 1503004761407,\n   \"id\": 54,\n   \"idDependenteOrigem\": null,\n   \"nome\": \"Maria\",\n   \"tipoParentesco\": {\n       \"codigo\": 3,\n       \"nome\": null\n   },\n   \"cpf\": \"12345678910\",\n   \"rg\": \"123456\",\n   \"codigoTipoSexo\": \"M\",\n   \"dataNascimento\": 1502975929457,\n   \"pessoaFuncionario\": 529483,\n   \"pessoaInclusao\": 529483,\n   \"pessoaAlteracao\": 529483,\n   \"inclusao\": 1503004761407,\n   \"alteracao\": 1503004761407,\n   \"tipo\": \"AGUARDANDO_APROVACAO\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"DependenteFuncionarioDTO\",\n          \"field\": \"codigoTipoSexo\",\n          \"message\": \"Tipos: M | F\"\n      }\n  ]\n}\nResponse Code\n400",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/dependenteFuncionario/anexo",
+    "title": "Upload anexo dependente",
+    "name": "upload_anexo_dependente",
+    "description": "<p>Enviar arquivo anexo do dependente</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dependente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Anexo",
+            "description": "<p>em base64.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Opera",
+            "description": "<p>ção realizada com sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "Operação realizada com sucesso!",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"anexoDTO\",\n          \"field\": \"id\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/dadoFichaFuncional/anexo",
+    "title": "Upload anexo dado ficha",
+    "name": "upload_dado_ficha",
+    "description": "<p>Enviar arquivo anexo do dado ficha</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dependente.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "Anexo",
+            "description": "<p>em base64.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Opera",
+            "description": "<p>ção realizada com sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "Operação realizada com sucesso!",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"anexoDTO\",\n          \"field\": \"id\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
   },
   {
     "type": "post",

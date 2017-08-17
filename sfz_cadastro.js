@@ -1,11 +1,11 @@
 /**
- * @api {get} /cadastro/api/public/contribuinte/obterRestricoes obterRestricoes
+ * @api {get} /sfz_cadastro_api/api/public/contribuinte/obterRestricoes/{caceal} obterRestricoes
  * @apiName obterRestricoes
  * @apiDescription Obtem as restrições cadastrais de um contribuinte.
  * @apiGroup cadastro
  * @apiVersion 1.0.0
- * @apiParam {Integer} caceal Número da inscrição estadual do Contribuinte.
  * @apiHeader {String} token Chave única de acesso do usuário.
+ * @apiParam {Integer} caceal Número da inscrição estadual do Contribuinte.
  * @apiSuccess (Sucesso 200) {String} codigoTipoRestricao Código do tipo de restrição.
  * @apiSuccess (Sucesso 200) {String} dataCompetencia Data e hora de competência.
  * @apiSuccess (Sucesso 200) {String} descricaoRestricao Descrição da restrição.
@@ -42,18 +42,18 @@
  *    "status": 403,
  *    "error": "Forbidden",
  *    "message": "Access Denied",
- *    "path": "/api/public/contribuinte/obterRestricoes/0"
+ *    "path": "/sfz_cadastro_api/api/public/contribuinte/obterRestricoes/0"
  * }
  */
 
 /**
- * @api {get} /cadastro/api/public/contribuinte/obterContribuinte obterContribuinte
+ * @api {get} /sfz_cadastro_api/api/public/contribuinte/obterContribuinte obterContribuinte
  * @apiName obterContribuinte
  * @apiDescription Obtem os dados de um contribuinte.....
  * @apiGroup cadastro
  * @apiVersion 1.0.0
- * @apiParam {Integer} cnpjNumeroPessoaOuCaceal  CNPJ, Número pessoa ou Caceal.
  * @apiHeader {String} token Chave única de acesso do usuário.
+ * @apiParam {Integer} cnpjNumeroPessoaOuCaceal  CNPJ, Número pessoa ou Caceal.
  * @apiSuccess (Sucesso 200) {Double} caceal Número da inscrição estadual do Contribuinte.
  * @apiSuccess (Sucesso 200) {String} cnpj Código nacional de pessoa jurídica.
  * @apiSuccess (Sucesso 200) {String} codigoSituacaoCadastral Código da situação cadastral do contribuinte.
