@@ -165,11 +165,6 @@
  *         },
  *         "numeroPessoaInclusao": 100
  *     },
- *     "pessoaFuncionario": 529483,
- *     "pessoaInclusao": 529483,
- *     "pessoaAlteracao": 529483,
- *     "inclusao": 1502977953000,
- *     "alteracao": 1503005283728,
  *     "tipo": "AGUARDANDO_APROVACAO"
  * }
  *
@@ -347,11 +342,6 @@
  *                        },
  *                        "numeroPessoaInclusao": 529483
  *                    },
- *                    "pessoaFuncionario": 529483,
- *                    "pessoaInclusao": 529483,
- *                    "pessoaAlteracao": 529483,
- *                    "inclusao": 1502703085000,
- *                    "alteracao": 1502703085000,
  *                    "tipo": "VALIDO"
  *                }
  *            ]
