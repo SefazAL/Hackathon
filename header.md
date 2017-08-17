@@ -1,3 +1,3 @@
-## Projeto Postman
-
-[Postman](https://github.com/SefazAL/Postman/blob/master/postman.zip?raw=true)
+* Postman - Extensão para o chrome [dowload](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop)
+* Projeto Postman base para o Hackathon [dowload](https://github.com/SefazAL/Postman/blob/master/postman.zip?raw=true)
+* [Como importar um projeto no postman](http://tsdn.tecnospeed.com.br/blog-da-consultoria-tecnica-tecnospeed/post/como-importar-requisicoes-http-para-o-postman/p/6126)
