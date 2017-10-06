@@ -42,9 +42,8 @@
  * @apiName consultarCredito
  * @apiDescription Consulta créditos do usuário.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
- * @apiParam {String} CPFCNPJ CPF ou CNPJ do usuário.
  * @apiSuccess (Sucesso 200) {Double} valorCredito Valor de créditos disponíveis ao usuário.
  * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
  * @apiError (Erro 403) Forbidden Usuário sem acesso.
@@ -67,19 +66,18 @@
  */
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/bilheteContemplado bilheteContemplado
- * @apiName bilheteContemplado
+ * @api {post} /sfz-nfcidada-api/api/public/bilheteContemplado consultarBilhetesContempladosPorSequencialSorteio
+ * @apiName consultarBilhetesContempladosPorSequencialSorteio
  * @apiDescription Consulta de bilhetes contemplados nos sorteios.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
- * @apiParam {String} documento CFP ou CNPJ do usuário.
  * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Object[]} Bilhetes Lista de bilhetes sorteados.
  * @apiSuccess (Sucesso 200) {Double} Bilhetes.valorPremio Valor do prêmio.
  * @apiSuccess (Sucesso 200) {Object[]} Bilhetes.bilhete Dados do Bilhete premiado.
  * @apiSuccess (Sucesso 200) {String} Bilhetes.bilhete.numero Bilhete Número do bilhete sorteado.
- * @apiSuccess (Sucesso 200) {Object[]} Bilhetes.bilhete.sorteio Dados do sorteio.
+ * @apiSuccess (Sucesso 200) {Object} Bilhetes.bilhete.sorteio Dados do sorteio.
  * @apiSuccess (Sucesso 200) {Integer} Bilhetes.bilhete.sequencial Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Integer} Bilhetes.bilhete.codigoSorteio Códgo do sorteio.
  * @apiSuccess (Sucesso 200) {String} Bilhetes.bilhete.descricao Descrição do sorteio.
@@ -91,7 +89,6 @@
  *
  * @apiParamExample {json} Exemplo de passagem de parâmetros:
  * {
- *     "documento": "03918819493",
  *     "sequencialSorteio": 37
  * }
  *
@@ -119,6 +116,100 @@
  *    "error": "Forbidden",
  *    "message": "Access Denied",
  *    "path": "/sfz-nfcidada-api/api/public/bilheteContemplado"
+ * }
+ */
+
+
+/**
+ * @api {post} /sfz-nfcidada-api/api/public/bilhete consultarBilhetesPorSequencialSorteio
+ * @apiName consultarBilhetesPorSequencialSorteio
+ * @apiDescription Consulta de bilhetes nos sorteios.
+ * @apiGroup nfcidada
+ * @apiVersion 1.1.0
+ * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
+ * @apiSuccess (Sucesso 200) {Object[]} bilhetes Lista dos bilhetes.
+ * @apiSuccess (Sucesso 200) {String} bilhetes.bilhete.numero Bilhete Número do bilhete.
+ * @apiSuccess (Sucesso 200) {Object} bilhetes.sorteio Dados do sorteio.
+ * @apiSuccess (Sucesso 200) {Integer} bilhetes.sorteio.sequencial Número sequencial do sorteio.
+ * @apiSuccess (Sucesso 200) {Integer} bilhetes.sorteio.codigoSorteio Códgo do sorteio.
+ * @apiSuccess (Sucesso 200) {String} bilhetes.sorteio.descricao Descrição do sorteio.
+ * @apiSuccess (Sucesso 200) {String} bilhetes.sorteio.dataRealizacao Data de realização do sorteio.
+ * @apiSuccess (Sucesso 200) {String} bilhetes.numeroDocumento Número do CPF ou CNPJ.
+ * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 403) Forbidden Usuário sem acesso.
+ * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
+ *
+ * @apiParamExample {json} Exemplo de passagem de parâmetros:
+ * {
+ *     "sequencialSorteio": 37
+ * }
+ *
+ * @apiSuccessExample {String} Exemplo de retorno do sucesso:
+ * [
+ *     {
+ *         "numeroBilhete": 2452,
+ *         "sorteio": {
+ *             "sequencial": 37,
+ *             "codigoSorteio": 29,
+ *             "descricao": "Sorteio do dia do Consumidor 2015",
+ *             "dataRealizacao": "2016-04-11T00:00:00.000+0000"
+ *         },
+ *         "numeroDocumento": "46898042491"
+ *     }
+ * ]
+ * 
+ * @apiErrorExample Exemplo de retorno do erro:
+ * {
+ *    "timestamp": "2017-08-15T17:03:04.011+0000",
+ *    "status": 403,
+ *    "error": "Forbidden",
+ *    "message": "Access Denied",
+ *    "path": "/sfz-nfcidada-api/api/public/bilhete"
+ * }
+ */
+
+/**
+ * @api {get} /sfz-nfcidada-api/api/public/sorteio listarTodos
+ * @apiName listarTodos
+ * @apiDescription Consulta dos sorteios.
+ * @apiGroup nfcidada
+ * @apiVersion 1.1.0
+ * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
+ * @apiSuccess (Sucesso 200) {Object[]} soteios Lista dos sorteios.
+ * @apiSuccess (Sucesso 200) {Integer} soteios.sequencial Número sequencial do sorteio.
+ * @apiSuccess (Sucesso 200) {Integer} soteios.codigoSorteio Códgo do sorteio.
+ * @apiSuccess (Sucesso 200) {String} soteios.descricao Descrição do sorteio.
+ * @apiSuccess (Sucesso 200) {String} soteios.dataRealizacao Data de realização do sorteio.
+ * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 403) Forbidden Usuário sem acesso.
+ * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
+ *
+ *
+ * @apiSuccessExample {String} Exemplo de retorno do sucesso:
+ * [
+ *     {
+ *         "sequencial": 1,
+ *         "codigoSorteio": 1,
+ *         "descricao": "dia dos pais",
+ *         "dataRealizacao": "2009-08-07T00:00:00.000+0000"
+ *     },
+ *     {
+ *         "sequencial": 2,
+ *         "codigoSorteio": 2,
+ *         "descricao": "dia das crianças",
+ *         "dataRealizacao": "2009-10-05T00:00:00.000+0000"
+ *     }
+ * ]
+ * 
+ * @apiErrorExample Exemplo de retorno do erro:
+ * {
+ *    "timestamp": "2017-08-15T17:03:04.011+0000",
+ *    "status": 403,
+ *    "error": "Forbidden",
+ *    "message": "Access Denied",
+ *    "path": "/sfz-nfcidada-api/api/public/sorteio"
  * }
  */
 
@@ -204,10 +295,9 @@
  * @apiName notas
  * @apiDescription Consulta notas emitidas por um contribuinte.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {String} dataCompetencia Frase de segurança.
- * @apiParam {String} numeroDestinatario Resposta de segurança.
  * @apiSuccess (Sucesso 200) {Object[]} notas Lista de notas.
  * @apiSuccess (Sucesso 200) {String} notas.dataEmissao Data de emissão da nota.
  * @apiSuccess (Sucesso 200) {String} notas.numeroNotaFiscal Número da nota fiscal.
@@ -223,8 +313,7 @@
  *
  * @apiParamExample {json} Exemplo de passagem de parâmetros:
  * {
- *   "dataCompetencia": "201603",
- *   "numeroDestinatario": "12270435000135"
+ *   "dataCompetencia": "201603"
  * }
  *
  * apiSuccessExample {String} Exemplo de retorno do sucesso:
@@ -379,10 +468,9 @@
  * @apiName adotar
  * @apiDescription usuário adota uma entidade social.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {Integer} id Código da entidade social.
- * @apiParam {String} cpf CPF do usuário.
  * @apiSuccess (Sucesso 200) {Integer} mensagem Mensagem de sucesso.
  * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
  * @apiError (Erro 403) Forbidden Usuário sem acesso.
@@ -403,11 +491,11 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial consultarEntidade
- * @apiName consultarEntidade
+ * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial consultarTodas
+ * @apiName consultarTodas
  * @apiDescription Consulta todas entidades sociais.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiSuccess (Sucesso 200) {Object[]} entidades Lista de entidades sociais.
  * @apiSuccess (Sucesso 200) {Integer} id Código da entidade social.

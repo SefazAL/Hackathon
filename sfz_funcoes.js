@@ -16,7 +16,7 @@
  * @apiSuccessExample Exemplo de retorno do sucesso:
  * {
  *   "idAutorizacao": 20,
- *   "urlAutorizacao": "sefaz.urlAutorizacaoAplicativoUsuario"
+ *   "urlAutorizacao": "http://hackathonhabilitacao.sefaz.al.gov.br/"
  * }
  *
  */

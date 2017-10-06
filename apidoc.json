@@ -1,9 +1,9 @@
 {
-  "description": "Documenta&ccedil;&atilde;o das funcionalidades disponiveis para o #1 Hackathon.",
-  "name": "#1 Hackathon SEFAZ/AL",
+  "description": "Documenta&ccedil;&atilde;o das funcionalidades disponiveis para funcionalidades da SEFAZ/AL.",
+  "name": "APIs SEFAZ/AL",
   "version": "1.0.0",
-  "title": "SEFAZ/AL - Docs APIs do Hackathon #1",
-  "url": "http://hackathonapi.sefaz.al.gov.br",
+  "title": "SEFAZ/AL - Docs APIs",
+  "url": "http://api.sefaz.al.gov.br",
   "header": {
     "title": "Projeto Postman",
     "filename": "header.md"

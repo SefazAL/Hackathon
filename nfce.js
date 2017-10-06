@@ -3,8 +3,8 @@
  * @apiName consultarPrecosPorDescricao
  * @apiDescription Consulta preços de mercaorias por descrição
  * @apiGroup nfce
- * @apiVersion 1.0.0
- * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiVersion 1.1.0
+ * @apiHeader {String} AppToken Token de acesso do usuário.
  * @apiParam {String} descricao Nome do produto.
  * @apiParam {Integer} dias Número de dias da oferta (máx. 3 dias).
  * @apiParam {Double} latitude Latitude de onde se encontra o dispositivo de consulta.
@@ -80,8 +80,8 @@
  * @apiName consultarPrecosPorCodigoDeBarras
  * @apiDescription Consulta preços de mercaorias por código de barras
  * @apiGroup nfce
- * @apiVersion 1.0.0
- * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiVersion 1.1.0
+ * @apiHeader {String} AppToken Token de acesso do usuário.
  * @apiParam {String} codigoDeBarras Código de barras do produto.
  * @apiParam {Integer} dias Número de dias da oferta (máx. 3 dias).
  * @apiParam {Double} latitude Latitude de onde se encontra o dispositivo de consulta.
