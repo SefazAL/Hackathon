@@ -172,7 +172,7 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/consultarCredito/{CPFCNPJ} consultarCredito
+ * @api {get} /sfz-nfcidada-api/api/public/consultarCredito consultarCredito
  * @apiName consultarCredito
  * @apiDescription Consulta créditos do usuário.
  * @apiGroup nfcidada
@@ -201,7 +201,7 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar/{cpf} adotar
+ * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar adotar
  * @apiName adotar
  * @apiDescription usuário adota uma entidade social.
  * @apiGroup nfcidada
@@ -223,7 +223,7 @@
  *    "status": 403,
  *    "error": "Forbidden",
  *    "message": "Access Denied",
- *    "path": "/sfz-nfcidada-api/api/public/denuncia/alterar"
+ *    "path": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar"
  * }
  * 
  */

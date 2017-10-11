@@ -4628,7 +4628,7 @@
   },
   {
     "type": "get",
-    "url": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar/{cpf}",
+    "url": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar",
     "title": "adotar",
     "name": "adotar",
     "description": "<p>usuário adota uma entidade social.</p>",
@@ -4710,7 +4710,7 @@
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia/alterar\"\n}",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar\"\n}",
           "type": "json"
         }
       ]
@@ -5664,7 +5664,7 @@
   },
   {
     "type": "get",
-    "url": "/sfz-nfcidada-api/api/public/consultarCredito/{CPFCNPJ}",
+    "url": "/sfz-nfcidada-api/api/public/consultarCredito",
     "title": "consultarCredito",
     "name": "consultarCredito",
     "description": "<p>Consulta créditos do usuário.</p>",
@@ -5743,7 +5743,7 @@
   },
   {
     "type": "get",
-    "url": "/sfz-nfcidada-api/api/public/consultarCredito/{CPFCNPJ}",
+    "url": "/sfz-nfcidada-api/api/public/consultarCredito",
     "title": "consultarCredito",
     "name": "consultarCredito",
     "description": "<p>Consulta créditos do usuário.</p>",

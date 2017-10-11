@@ -38,7 +38,7 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/consultarCredito/{CPFCNPJ} consultarCredito
+ * @api {get} /sfz-nfcidada-api/api/public/consultarCredito consultarCredito
  * @apiName consultarCredito
  * @apiDescription Consulta créditos do usuário.
  * @apiGroup nfcidada
