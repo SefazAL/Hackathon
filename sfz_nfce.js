@@ -3,19 +3,21 @@
  * @apiName consultarPrecosPorDescricao
  * @apiDescription Consulta preços de mercadorias por descrição.
  * @apiGroup nfce
- * @apiVersion 1.1.0
+ * @apiVersion 1.2.0
  * @apiHeader {String} AppToken Token de acesso do usuário.
  * @apiParam {String} descricao Nome do produto.
  * @apiParam {Integer} dias Número de dias da oferta (máx. 3 dias).
  * @apiParam {Double} latitude Latitude de onde se encontra o dispositivo de consulta.
  * @apiParam {Double} longitude Longitude de onde se encontra o dispositivo de consulta.
- * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 10 km).
+ * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).
  * @apiSuccess (Sucesso 201) {Object[]} produtos Lista de prodtos que satisfazem a consulta.
  * @apiSuccess (Sucesso 201) {String} produtos.codGetin Código do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dthEmissaoUltimaVenda Data de Última venda do produto.
- * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda valor unitário da Útima venda.
- * @apiSuccess (Sucesso 201) {Double} produtos.valUltimaVenda valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda Valor unitário da Útima venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valUltimaVenda Valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMinimoVendido Valor mínimo vendido no período pesquisado.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMaximoVendido Valor máximo vendido no período pesquisado.
  * @apiSuccess (Sucesso 201) {String} produtos.txtDataUltimaEmissao Cálculo do tempo da Data da última emissão do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.numCNPJ Número Cadastro Nacional da pessoa jurídica.
  * @apiSuccess (Sucesso 201) {String} produtos.nomRazaoSocial Nome da razão social do contribuinte.
@@ -35,35 +37,58 @@
  *
  * @apiParamExample {json} Exemplo de passagem de parâmetros:
  * {
- *   "descricao": "coca cola",
- *   "dias": 3,
- *   "latitude": -9.6432331,
- *   "longitude": -35.7190686,
- *   "raio": 10
+ *     "descricao": "coca ",
+ *     "dias": 3,
+ *     "latitude": -9.6432331,
+ *     "longitude": -35.7190686,
+ *     "raio": 15
  * }
  *
  * @apiSuccessExample Exemplo de retorno do sucesso:
  * [
- *  {
- *    "codGetin": "07894900020014",
- *    "dscProduto": "REF C C STEV M 250ML",
- *    "dthEmissaoUltimaVenda": "2017-08-15T15:41:28.000+0000",
- *    "valUnitarioUltimaVenda": 0.99,
- *    "valUltimaVenda": 0.99,
- *    "txtDataUltimaEmissao": "Há 1 dia e 22 horas",
- *    "numCNPJ": "47508411137100",
- *    "nomRazaoSocial": "COMPANHIA BRASILEIRA DE DISTRIBUICAO",
- *    "nomFantasia": null,
- *    "numTelefone": "(11) 38860599",
- *    "nomLogradouro": "AV FERNANDES LIMA",
- *    "numImovel": "4000",
- *    "nomBairro": "GRUTA DE LOURDES",
- *    "numCep": "57052400",
- *    "nomMunicipio": "MACEIO",
- *    "numLatitude": -9.6124954,
- *    "numLongitude": -35.7389171
- *  }
- * ]
+ *    {
+ *        "codGetin": "07894900010015",
+ *        "codNcm": "22021000",
+ *        "dscProduto": "REFRI COCA COLA LT 350ML",
+ *        "valMinimoVendido": 0.01,
+ *        "valMaximoVendido": 3.75,
+ *        "dthEmissaoUltimaVenda": "2017-10-16T10:03:15.000+0000",
+ *        "valUnitarioUltimaVenda": 3.75,
+ *        "valUltimaVenda": 0.01,
+ *        "numCNPJ": "12268876000364",
+ *        "nomRazaoSocial": "RENOVADORA DE PNEUS OK LTDA",
+ *        "nomFantasia": null,
+ *        "numTelefone": null,
+ *        "nomLogradouro": "R   JANGADEIROS ALAGOANOS",
+ *        "numImovel": "1351",
+ *        "nomBairro": "PAJUSSARA",
+ *        "numCep": "57030000",
+ *        "nomMunicipio": "MACEIO",
+ *        "numLatitude": -9.663984599999999,
+ *        "numLongitude": -35.7111234
+ *    },
+ *    {
+ *        "codGetin": null,
+ *        "codNcm": "22021000",
+ *        "dscProduto": "REFRI COCA COLA L 350 ML RESTAURANTE",
+ *        "valMinimoVendido": 0.01,
+ *        "valMaximoVendido": 7.5,
+ *        "dthEmissaoUltimaVenda": "2017-10-16T22:20:18.000+0000",
+ *        "valUnitarioUltimaVenda": 7.5,
+ *        "valUltimaVenda": 0.01,
+ *        "numCNPJ": "09326499000104",
+ *        "nomRazaoSocial": "SOTEL HOTELARIA S/A",
+ *        "nomFantasia": "SOTEL HOTELARIA",
+ *        "numTelefone": null,
+ *        "nomLogradouro": "AV DOUTOR ANTONIO GOUVEIA",
+ *        "numImovel": "925",
+ *        "nomBairro": "PAJUCARA",
+ *        "numCep": "57030170",
+ *        "nomMunicipio": "MACEIO",
+ *        "numLatitude": -9.666352699999999,
+ *        "numLongitude": -35.7125364
+ *    }
+ *]
  *
  * @apiErrorExample Exemplo de retorno do erro:
  * {
@@ -83,19 +108,21 @@
  * @apiName consultarPrecosPorCodigoDeBarras
  * @apiDescription Consulta preços de mercadorias por código de barras.
  * @apiGroup nfce
- * @apiVersion 1.1.0
+ * @apiVersion 1.2.0
  * @apiHeader {String} AppToken Token de acesso do usuário.
  * @apiParam {String} codigoDeBarras Código de barras do produto.
  * @apiParam {Integer} dias Número de dias da oferta (máx. 3 dias).
  * @apiParam {Double} latitude Latitude de onde se encontra o dispositivo de consulta.
  * @apiParam {Double} longitude Longitude de onde se encontra o dispositivo de consulta.
- * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 10 km).
+ * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).
  * @apiSuccess (Sucesso 201) {Object[]} produtos Lista de prodtos que satisfazem a consulta.
  * @apiSuccess (Sucesso 201) {String} produtos.codGetin Código do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dthEmissaoUltimaVenda Data de Última venda do produto.
- * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda valor unitário da Útima venda.
- * @apiSuccess (Sucesso 201) {Double} produtos.valUltimaVenda valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda Valor unitário da Útima venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valUltimaVenda Valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMinimoVendido Valor mínimo vendido no período pesquisado.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMaximoVendido Valor máximo vendido no período pesquisado.
  * @apiSuccess (Sucesso 201) {String} produtos.txtDataUltimaEmissao Cálculo do tempo da Data da última emissão do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.numCNPJ Número Cadastro Nacional da pessoa jurídica.
  * @apiSuccess (Sucesso 201) {String} produtos.nomRazaoSocial Nome da razão social do contribuinte.
@@ -115,54 +142,79 @@
  *
  * @apiParamExample {json} Request-Example:
  * {
- *   "codigoDeBarras": "7894900020014",
- *   "dias": 3,
- *   "latitude": -9.6432331,
- *   "longitude": -35.7190686,
- *   "raio": 10
+ *     "codigoDeBarras": "07894900010015",
+ *     "dias": 3,
+ *     "latitude": -9.6432331,
+ *     "longitude": -35.7190686,
+ *     "raio": 15
  * }
  *
  * @apiSuccessExample Exemplo de retorno do sucesso:
  * [
- *     {
- *         "codGetin": "78909045",
- *         "dscProduto": "COCA COLA ZERO PET UN",
- *         "dthEmissaoUltimaVenda": "2017-08-15T15:47:02.000+0000",
- *         "valUnitarioUltimaVenda": 0.99,
- *         "valUltimaVenda": 0.99,
- *         "txtDataUltimaEmissao": "Há 1 dia e 21 horas",
- *         "numCNPJ": "39346861008499",
- *         "nomRazaoSocial": "G. BARBOSA COMERCIAL LTDA.",
- *         "nomFantasia": "G. BARBOSA",
- *         "numTelefone": "(79) 32165210",
- *         "nomLogradouro": "AV  MENINO MARCELO",
- *         "numImovel": "9730",
- *         "nomBairro": "SERRARIA",
- *         "numCep": "57046000",
- *         "nomMunicipio": "MACEIO",
- *         "numLatitude": -9.6118036,
- *         "numLongitude": -35.7198944
- *     },
- *     {
- *         "codGetin": "78909045",
- *         "dscProduto": "COCA COLA ZERO PET UN",
- *         "dthEmissaoUltimaVenda": "2017-08-14T12:28:34.000+0000",
- *         "valUnitarioUltimaVenda": 0.99,
- *         "valUltimaVenda": 0.99,
- *         "txtDataUltimaEmissao": "Há 3 dias",
- *         "numCNPJ": "39346861008308",
- *         "nomRazaoSocial": "G. BARBOSA COMERCIAL LTDA.",
- *         "nomFantasia": "G. BARBOSA",
- *         "numTelefone": "(79) 32165210",
- *         "nomLogradouro": "AV  GUSTAVO PAIVA",
- *         "numImovel": "5395",
- *         "nomBairro": "CRUZ DAS ALMAS",
- *         "numCep": "57038000",
- *         "nomMunicipio": "MACEIO",
- *         "numLatitude": -9.631070599999999,
- *         "numLongitude": -35.7017861
- *     }
- * ]
+ *   {
+ *       "codGetin": "07894900010015",
+ *       "codNcm": "22021000",
+ *       "dscProduto": "REFRI COCA COLA LT 350ML",
+ *       "valMinimoVendido": 0.01,
+ *       "valMaximoVendido": 3.75,
+ *       "dthEmissaoUltimaVenda": "2017-10-16T10:03:15.000+0000",
+ *       "valUnitarioUltimaVenda": 3.75,
+ *       "valUltimaVenda": 0.01,
+ *       "numCNPJ": "12268876000364",
+ *       "nomRazaoSocial": "RENOVADORA DE PNEUS OK LTDA",
+ *       "nomFantasia": null,
+ *       "numTelefone": null,
+ *       "nomLogradouro": "R   JANGADEIROS ALAGOANOS",
+ *       "numImovel": "1351",
+ *       "nomBairro": "PAJUSSARA",
+ *       "numCep": "57030000",
+ *       "nomMunicipio": "MACEIO",
+ *       "numLatitude": -9.663984599999999,
+ *       "numLongitude": -35.7111234
+ *   },
+ *   {
+ *       "codGetin": "7894900010015",
+ *       "codNcm": "22021000",
+ *       "dscProduto": "REFRI COCA-COLA 350ML",
+ *       "valMinimoVendido": 2.25,
+ *       "valMaximoVendido": 2.25,
+ *       "dthEmissaoUltimaVenda": "2017-10-17T00:46:59.000+0000",
+ *       "valUnitarioUltimaVenda": 2.25,
+ *       "valUltimaVenda": 2.25,
+ *       "numCNPJ": "12303616000625",
+ *       "nomRazaoSocial": "S. VIEIRA DA SILVA EIRELI",
+ *       "nomFantasia": "CASA VIEIRA",
+ *       "numTelefone": "(82) 21234444",
+ *       "nomLogradouro": "AV MENINO MARCELO",
+ *       "numImovel": "3800",
+ *       "nomBairro": "CIDADE UNIVERSITARIA",
+ *       "numCep": "57073470",
+ *       "nomMunicipio": "MACEIO",
+ *       "numLatitude": -9.555659400000001,
+ *       "numLongitude": -35.7581934
+ *   },
+ *   {
+ *       "codGetin": "7894900010015",
+ *       "codNcm": "22021000",
+ *       "dscProduto": "COCA COLA 350 ML",
+ *       "valMinimoVendido": 2.25,
+ *       "valMaximoVendido": 4.5,
+ *       "dthEmissaoUltimaVenda": "2017-10-16T19:56:12.000+0000",
+ *       "valUnitarioUltimaVenda": 4.5,
+ *       "valUltimaVenda": 2.25,
+ *       "numCNPJ": "00808928000369",
+ *       "nomRazaoSocial": "FF SORVETES LTDA - EPP                     ",
+ *       "nomFantasia": null,
+ *       "numTelefone": null,
+ *       "nomLogradouro": "AV  ALVARO OTACILIO",
+ *       "numImovel": "3195",
+ *       "nomBairro": "PONTA VERDE",
+ *       "numCep": "57035180",
+ *       "nomMunicipio": "MACEIO",
+ *       "numLatitude": -9.657080599999999,
+ *       "numLongitude": -35.6988336
+ *   }
+ *]
  *
  * @apiErrorExample Exemplo de retorno do erro:
  * {
@@ -191,8 +243,10 @@
  * @apiSuccess (Sucesso 201) {String} produto.codGetin Código do produto.
  * @apiSuccess (Sucesso 201) {String} produto.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produto.dthEmissaoUltimaVenda Data de Última venda do produto.
- * @apiSuccess (Sucesso 201) {Double} produto.valUnitarioUltimaVenda valor unitário da Útima venda.
- * @apiSuccess (Sucesso 201) {Double} produto.valUltimaVenda valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produto.valUnitarioUltimaVenda Valor unitário da Útima venda.
+ * @apiSuccess (Sucesso 201) {Double} produto.valUltimaVenda Valor da Última venda.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMinimoVendido Valor mínimo vendido no período pesquisado.
+ * @apiSuccess (Sucesso 201) {Double} produtos.valMaximoVendido Valor máximo vendido no período pesquisado.
  * @apiSuccess (Sucesso 201) {String} produto.txtDataUltimaEmissao Cálculo do tempo da Data da última emissão do produto.
  * @apiSuccess (Sucesso 201) {String} produto.numCNPJ Número Cadastro Nacional da pessoa jurídica.
  * @apiSuccess (Sucesso 201) {String} produto.nomRazaoSocial Nome da razão social do contribuinte.
@@ -212,35 +266,34 @@
  *
  * @apiParamExample {json} Request-Example:
  * {
- *   "codigoDeBarras": "7894900020014",
- *   "dias": 3,
- *   "latitude": -9.6432331,
- *   "longitude": -35.7190686,
- *   "raio": 10
+ *   "cnpj": "13004510039395",
+ *   "codigoBarras" : "7898286201968",
+ *   "quantidadeDeDias": 3
  * }
  *
  * @apiSuccessExample Exemplo de retorno do sucesso:
- * [
- *     {
- *         "codGetin": "78909045",
- *         "dscProduto": "COCA COLA ZERO PET UN",
- *         "dthEmissaoUltimaVenda": "2017-08-15T15:47:02.000+0000",
- *         "valUnitarioUltimaVenda": 0.99,
- *         "valUltimaVenda": 0.99,
- *         "txtDataUltimaEmissao": "Há 1 dia e 21 horas",
- *         "numCNPJ": "39346861008499",
- *         "nomRazaoSocial": "G. BARBOSA COMERCIAL LTDA.",
- *         "nomFantasia": "G. BARBOSA",
- *         "numTelefone": "(79) 32165210",
- *         "nomLogradouro": "AV  MENINO MARCELO",
- *         "numImovel": "9730",
- *         "nomBairro": "SERRARIA",
- *         "numCep": "57046000",
- *         "nomMunicipio": "MACEIO",
- *         "numLatitude": -9.6118036,
- *         "numLongitude": -35.7198944
- *     }
- * ]
+ * {
+ *     "codGetin": "7898286201968",
+ *     "codNcm": "21069029",
+ *     "dscProduto": "REFR MACA MARATA",
+ *     "valMinimoVendido": 0.65,
+ *     "valMaximoVendido": 0.65,
+ *     "dthEmissaoUltimaVenda": "2017-10-14T17:17:29.000+0000",
+ *     "valUnitarioUltimaVenda": 0.65,
+ *     "valUltimaVenda": 0.65,
+ *     "txtDataUltimaEmissao": "Há 2 dias e 23 horas",
+ *     "numCNPJ": "13004510039395",
+ *     "nomRazaoSocial": "BOMPRECO SUPERMERCADOS DO NORDESTE LTDA",
+ *     "nomFantasia": "HIPERMERCADO",
+ *     "numTelefone": "(81) 32717297",
+ *     "nomLogradouro": "AV MENINO MARCELO",
+ *     "numImovel": "5300",
+ *     "nomBairro": "ANTARES",
+ *     "numCep": "57083410",
+ *     "nomMunicipio": "MACEIO",
+ *     "numLatitude": -9.574557,
+ *     "numLongitude": -35.738457
+ * }
  *
  * @apiErrorExample Exemplo de retorno do erro:
  * {

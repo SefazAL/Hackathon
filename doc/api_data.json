@@ -2709,6 +2709,11 @@
       "examples": [
         {
           "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n        \"codigo\": 2,\n        \"nome\": \"Mãe\"\n   }\n]",
+          "type": "json"
+        },
+        {
+          "title": "Exemplo de retorno do sucesso:",
           "content": "[\n   {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    }\n]",
           "type": "json"
         }
@@ -2776,11 +2781,6 @@
     },
     "success": {
       "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n   {\n        \"codigo\": 2,\n        \"nome\": \"Mãe\"\n   }\n]",
-          "type": "json"
-        },
         {
           "title": "Exemplo de retorno do sucesso:",
           "content": "[\n   {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    }\n]",
@@ -3559,10 +3559,250 @@
   },
   {
     "type": "post",
+    "url": "/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento",
+    "title": "consultarPrecoProdutoEmEstabelecimento",
+    "name": "consultarPrecoProdutoEmEstabelecimento",
+    "description": "<p>Consulta o menor preço de venda de um produto em determinado estabelecimento.</p>",
+    "group": "nfce",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "AppToken",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>CNPJ do estabelecimento.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "codigoBarras",
+            "description": "<p>Número do código de barras.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "quantidadeDeDias",
+            "description": "<p>Número de dias da busca.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"codigoDeBarras\": \"7894900020014\",\n  \"dias\": 3,\n  \"latitude\": -9.6432331,\n  \"longitude\": -35.7190686,\n  \"raio\": 10\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 201": [
+          {
+            "group": "Sucesso 201",
+            "type": "Object",
+            "optional": false,
+            "field": "produto",
+            "description": "<p>Prodtos que satisfaz a consulta.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.codGetin",
+            "description": "<p>Código do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.dscProduto",
+            "description": "<p>Descrição do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.dthEmissaoUltimaVenda",
+            "description": "<p>Data de Última venda do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.valUnitarioUltimaVenda",
+            "description": "<p>valor unitário da Útima venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.valUltimaVenda",
+            "description": "<p>valor da Última venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.txtDataUltimaEmissao",
+            "description": "<p>Cálculo do tempo da Data da última emissão do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numCNPJ",
+            "description": "<p>Número Cadastro Nacional da pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomRazaoSocial",
+            "description": "<p>Nome da razão social do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomFantasia",
+            "description": "<p>Nome fantasia do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numTelefone",
+            "description": "<p>Número de telefone do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomLogradouro",
+            "description": "<p>Nome do logradouro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numImovel",
+            "description": "<p>Número do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomBairro",
+            "description": "<p>Nome do bairro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numCep",
+            "description": "<p>CEP.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomMunicipio",
+            "description": "<p>Municí­pio.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.numLatitude",
+            "description": "<p>Latitude do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.numLongitude",
+            "description": "<p>Longitude do estabelecimento.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n    {\n        \"codGetin\": \"78909045\",\n        \"dscProduto\": \"COCA COLA ZERO PET UN\",\n        \"dthEmissaoUltimaVenda\": \"2017-08-15T15:47:02.000+0000\",\n        \"valUnitarioUltimaVenda\": 0.99,\n        \"valUltimaVenda\": 0.99,\n        \"txtDataUltimaEmissao\": \"Há 1 dia e 21 horas\",\n        \"numCNPJ\": \"39346861008499\",\n        \"nomRazaoSocial\": \"G. BARBOSA COMERCIAL LTDA.\",\n        \"nomFantasia\": \"G. BARBOSA\",\n        \"numTelefone\": \"(79) 32165210\",\n        \"nomLogradouro\": \"AV  MENINO MARCELO\",\n        \"numImovel\": \"9730\",\n        \"nomBairro\": \"SERRARIA\",\n        \"numCep\": \"57046000\",\n        \"nomMunicipio\": \"MACEIO\",\n        \"numLatitude\": -9.6118036,\n        \"numLongitude\": -35.7198944\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfce.js",
+    "groupTitle": "nfce"
+  },
+  {
+    "type": "post",
     "url": "/sfz_nfce_api/api/public/consultarPrecosPorCodigoDeBarras",
     "title": "consultarPrecosPorCodigoDeBarras",
     "name": "consultarPrecosPorCodigoDeBarras",
-    "description": "<p>Consulta preços de mercaorias por código de barras</p>",
+    "description": "<p>Consulta preços de mercadorias por código de barras.</p>",
     "group": "nfce",
     "version": "1.1.0",
     "header": {
@@ -3752,7 +3992,7 @@
             "group": "Sucesso 201",
             "type": "Double",
             "optional": false,
-            "field": "numLongitude",
+            "field": "produtos.numLongitude",
             "description": "<p>Longitude do estabelecimento.</p>"
           }
         ]
@@ -3790,17 +4030,25 @@
             "field": "NotFound",
             "description": "<p><code>id</code> do usuário não encontrado.</p>"
           }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
         ]
       },
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"message\": \"Município não informado.\",\n  \"description\": \"error.validation\",\n  \"fieldErrors\": null\n}\nResponse Code\n400",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
           "type": "json"
         }
       ]
     },
-    "filename": "./nfce.js",
+    "filename": "./sfz_nfce.js",
     "groupTitle": "nfce"
   },
   {
@@ -4054,7 +4302,7 @@
     "url": "/sfz_nfce_api/api/public/consultarPrecosPorDescricao",
     "title": "consultarPrecosPorDescricao",
     "name": "consultarPrecosPorDescricao",
-    "description": "<p>Consulta preços de mercaorias por descrição</p>",
+    "description": "<p>Consulta preços de mercadorias por descrição.</p>",
     "group": "nfce",
     "version": "1.1.0",
     "header": {
@@ -4244,7 +4492,7 @@
             "group": "Sucesso 201",
             "type": "Double",
             "optional": false,
-            "field": "numLongitude",
+            "field": "produtos.numLongitude",
             "description": "<p>Longitude do estabelecimento.</p>"
           }
         ]
@@ -4282,17 +4530,25 @@
             "field": "NotFound",
             "description": "<p><code>id</code> do usuário não encontrado.</p>"
           }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
         ]
       },
       "examples": [
         {
           "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"message\": \"Município não informado.\",\n  \"description\": \"error.validation\",\n  \"fieldErrors\": null\n}\nResponse Code\n400",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
           "type": "json"
         }
       ]
     },
-    "filename": "./nfce.js",
+    "filename": "./sfz_nfce.js",
     "groupTitle": "nfce"
   },
   {
