@@ -3,10 +3,11 @@
  * @apiName consultar
  * @apiDescription Consulta os termos de apreensão de um determinado Contribuinte.
  * @apiGroup fronteiras
- * @apiVersion 1.0.0
+ * @apiVersion 1.0.1
+ * @apiHeader {String} Authorization Chave única de acesso do usuário.
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte
- * @apiParam {String} [periodoInicio] Data de início da pesquisa.
- * @apiParam {String} [periodoTermino] Data de término da pesquisa.
+ * @apiParam {String} periodoInicio Data de início da pesquisa.
+ * @apiParam {String} periodoTermino Data de término da pesquisa.
  * @apiSuccess (Sucesso 200) {Integer} numeroTermo Número do termo.
  * @apiSuccess (Sucesso 200) {Integer} dataEmissao Data de emissão do termo.
  * @apiSuccess (Sucesso 200) {Integer} codigoStatus Código de status do termo.
@@ -46,7 +47,8 @@
  * @apiName consultarAntecipado
  * @apiDescription Consulta DAR antecipado e FECOEP.
  * @apiGroup fronteiras
- * @apiVersion 1.0.0
+ * @apiVersion 1.0.1
+ * @apiHeader {String} Authorization Chave única de acesso do usuário.
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte
  * @apiParam {Integer} sequencialAntecipacao Número sequencial da antecipação.
  * @apiSuccess (Sucesso 200) {Object[]} antecipados Lista de valores antecipados.
@@ -101,6 +103,7 @@
  * @apiDescription Consulta valores antecipado e FECOEP.
  * @apiGroup fronteiras
  * @apiVersion 1.0.0
+ * @apiHeader {String} Authorization Chave única de acesso do usuário.
  * @apiParam {Integer} competencia Competência mm/aaaa
  * @apiParam {Integer} numeroCaceal Número da inscrição estadual do Contribuinte.
  * @apiSuccess (Sucesso 200) {Object[]} antecipados Lista de valores antecipados.

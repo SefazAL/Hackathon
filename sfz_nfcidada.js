@@ -66,11 +66,11 @@
  */
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/bilheteContemplado consultarBilhetesContempladosPorSequencialSorteio
+ * @api {get} /sfz-nfcidada-api/api/public/bilheteContemplado/{sequencialSorteio} consultarBilhetesContempladosPorSequencialSorteio
  * @apiName consultarBilhetesContempladosPorSequencialSorteio
  * @apiDescription Consulta de bilhetes contemplados nos sorteios.
  * @apiGroup nfcidada
- * @apiVersion 1.1.0
+ * @apiVersion 1.1.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Object[]} Bilhetes Lista de bilhetes sorteados.
@@ -121,11 +121,11 @@
 
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/bilhete consultarBilhetesPorSequencialSorteio
+ * @api {get} /sfz-nfcidada-api/api/public/bilhete/{sequencialSorteio} consultarBilhetesPorSequencialSorteio
  * @apiName consultarBilhetesPorSequencialSorteio
  * @apiDescription Consulta de bilhetes nos sorteios.
  * @apiGroup nfcidada
- * @apiVersion 1.1.0
+ * @apiVersion 1.1.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Object[]} bilhetes Lista dos bilhetes.
@@ -174,9 +174,8 @@
  * @apiName listarTodos
  * @apiDescription Consulta dos sorteios.
  * @apiGroup nfcidada
- * @apiVersion 1.1.0
+ * @apiVersion 1.1.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
- * @apiParam {String} sequencialSorteio Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Object[]} soteios Lista dos sorteios.
  * @apiSuccess (Sucesso 200) {Integer} soteios.sequencial Número sequencial do sorteio.
  * @apiSuccess (Sucesso 200) {Integer} soteios.codigoSorteio Códgo do sorteio.
@@ -365,13 +364,13 @@
 
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/notas notas
+ * @api {get} /sfz-nfcidada-api/api/public/notas/{dataCompetencia} notas
  * @apiName notas
  * @apiDescription Consulta notas emitidas por um contribuinte.
  * @apiGroup nfcidada
  * @apiVersion 1.1.0
  * @apiHeader {String} Autorization Token de acesso do usuário.
- * @apiParam {String} dataCompetencia Frase de segurança.
+ * @apiParam {String} dataCompetencia Data de competência das notas.
  * @apiSuccess (Sucesso 200) {Object[]} notas Lista de notas.
  * @apiSuccess (Sucesso 200) {String} notas.dataEmissao Data de emissão da nota.
  * @apiSuccess (Sucesso 200) {String} notas.numeroNotaFiscal Número da nota fiscal.
@@ -480,11 +479,11 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/denuncia/alterar alterar
- * @apiName alterar
+ * @api {put} /sfz-nfcidada-api/api/public/denuncia/alterar alterarDenuncia
+ * @apiName alterarDenuncia
  * @apiDescription Altera uma denúncia de notas fiscais não enviadas pelo contribuinte.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.0.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {Integer} [cNF] Código da nota fiscal.
  * @apiParam {String} [cnpjDestinatario] CNPJ do usuário.
@@ -524,7 +523,9 @@
  * }
  *
  * apiSuccessExample {String} Exemplo de retorno do sucesso:
- * []
+ * {
+ *      "codigo": 1029
+ * }
  * 
  * @apiErrorExample Exemplo de retorno do erro:
  * {
@@ -581,16 +582,16 @@
  *
  * apiSuccessExample {String} Exemplo de retorno do sucesso:
  * [
- *  {
- *      "id": 275,
- *      "cnpj": "35561208000164",
- *      "razaoSocial": "Família Alagoana Down"
- *  },
- *  {
- *      "id": 7983,
- *      "cnpj": "12450268000104",
- *      "razaoSocial": "ASSOCIACAO PESTALOZZI DE MACEIO"
- *  }
+ *    {
+ *        "id": 275,
+ *        "cnpj": "35561208000164",
+ *        "razaoSocial": "Família Alagoana Down"
+ *    },
+ *    {
+ *        "id": 7983,
+ *        "cnpj": "12450268000104",
+ *        "razaoSocial": "ASSOCIACAO PESTALOZZI DE MACEIO"
+ *    }
  * ]
  * 
  * @apiErrorExample Exemplo de retorno do erro:
@@ -600,6 +601,88 @@
  *    "error": "Forbidden",
  *    "message": "Access Denied",
  *    "path": "/sfz-nfcidada-api/api/public/entidadeSocial"
+ * }
+ * 
+ */
+
+
+/**
+ * @api {get} /sfz-nfcidada-api/api/public/situacaoDenuncia consultarSituacoesDeDenuncia
+ * @apiName consultarSituacoesDeDenuncia
+ * @apiDescription Lista todas as situações das denúncias.
+ * @apiGroup nfcidada
+ * @apiVersion 1.0.0
+ * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiSuccess (Sucesso 200) {Object[]} situacoes Lista de situações.
+ * @apiSuccess (Sucesso 200) {String} codigo Código da situação.
+ * @apiSuccess (Sucesso 200) {String} descricao Descrição da situação.
+ * @apiSuccess (Sucesso 200) {Integer} ordem Ordem da situação.
+ * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 403) Forbidden Usuário sem acesso.
+ * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
+ *
+ * apiSuccessExample {String} Exemplo de retorno do sucesso:
+ * [
+ *  {
+ *      "codigo": 10,
+ *      "descricao": "Situação A",
+ *      "ordem": 1
+ *  },
+ *  {
+ *      "codigo": 11,
+ *      "descricao": "Situação B",
+ *      "ordem": 2
+ *  }
+ * ]
+ * 
+ * @apiErrorExample Exemplo de retorno do erro:
+ * {
+ *    "timestamp": "2017-08-15T17:03:04.011+0000",
+ *    "status": 403,
+ *    "error": "Forbidden",
+ *    "message": "Access Denied",
+ *    "path": "/sfz-nfcidada-api/api/public/situacaoDenuncia"
+ * }
+ * 
+ */
+
+
+/**
+ * @api {get} /sfz-nfcidada-api/api/public/tipoDenuncia consultarTipoDeDenuncia
+ * @apiName consultarTipoDeDenuncia
+ * @apiDescription Lista todos os tipos das denúncias.
+ * @apiGroup nfcidada
+ * @apiVersion 1.0.0
+ * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiSuccess (Sucesso 200) {Object[]} tipos Lista de tipos.
+ * @apiSuccess (Sucesso 200) {String} codigo Código do tipo.
+ * @apiSuccess (Sucesso 200) {String} descricao Descrição do tipo.
+ * @apiSuccess (Sucesso 200) {Integer} ordem Ordem do tipo.
+ * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 403) Forbidden Usuário sem acesso.
+ * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
+ *
+ * apiSuccessExample {String} Exemplo de retorno do sucesso:
+ * [
+ *  {
+ *      "codigo": 10,
+ *      "descricao": "Tipo A",
+ *      "ordem": 1
+ *  },
+ *  {
+ *      "codigo": 11,
+ *      "descricao": "Tipo B",
+ *      "ordem": 2
+ *  }
+ * ]
+ * 
+ * @apiErrorExample Exemplo de retorno do erro:
+ * {
+ *    "timestamp": "2017-08-15T17:03:04.011+0000",
+ *    "status": 403,
+ *    "error": "Forbidden",
+ *    "message": "Access Denied",
+ *    "path": "/sfz-nfcidada-api/api/public/tipoDenuncia"
  * }
  * 
  */

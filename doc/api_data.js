@@ -47,10 +47,10 @@ define({ "api": [
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "Integre",
             "optional": false,
-            "field": "nomeDispositivo",
-            "description": "<p>Nome do dispositivo cadastrado previamente.</p>"
+            "field": "idAutorizacao",
+            "description": "<p>Número identificador da autorização.</p>"
           },
           {
             "group": "Parameter",
@@ -215,10 +215,10 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/sfz_cadastro_api/api/public/contribuinte/obterContribuinte",
+    "url": "/sfz_cadastro_api/api/public/contribuinte/obterContribuinte/{cnpjNumeroPessoaOuCaceal}",
     "title": "obterContribuinte",
     "name": "obterContribuinte",
-    "description": "<p>Obtem os dados de um contribuinte.....</p>",
+    "description": "<p>Obtem os dados de um contribuinte.</p>",
     "group": "cadastro",
     "version": "1.0.0",
     "header": {
@@ -403,7 +403,7 @@ define({ "api": [
     "name": "obterRestricoes",
     "description": "<p>Obtem as restrições cadastrais de um contribuinte.</p>",
     "group": "cadastro",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "header": {
       "fields": {
         "Header": [
@@ -411,7 +411,7 @@ define({ "api": [
             "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "token",
+            "field": "Authorization",
             "description": "<p>Chave única de acesso do usuário.</p>"
           }
         ]
@@ -456,10 +456,10 @@ define({ "api": [
           },
           {
             "group": "Sucesso 200",
-            "type": "Double",
+            "type": "Long",
             "optional": false,
             "field": "id",
-            "description": "<p>??.</p>"
+            "description": "<p>Númeor de identificação.</p>"
           },
           {
             "group": "Sucesso 200",
@@ -1143,7 +1143,20 @@ define({ "api": [
     "name": "consultar",
     "description": "<p>Consulta os termos de apreensão de um determinado Contribuinte.</p>",
     "group": "fronteiras",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1157,14 +1170,14 @@ define({ "api": [
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "periodoInicio",
             "description": "<p>Data de início da pesquisa.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "periodoTermino",
             "description": "<p>Data de término da pesquisa.</p>"
           }
@@ -1278,7 +1291,20 @@ define({ "api": [
     "name": "consultarAntecipado",
     "description": "<p>Consulta DAR antecipado e FECOEP.</p>",
     "group": "fronteiras",
-    "version": "1.0.0",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1449,6 +1475,19 @@ define({ "api": [
     "description": "<p>Consulta valores antecipado e FECOEP.</p>",
     "group": "fronteiras",
     "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Chave única de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1568,692 +1607,6 @@ define({ "api": [
     },
     "filename": "./sfz_fronteiras.js",
     "groupTitle": "fronteiras"
-  },
-  {
-    "type": "post",
-    "url": "/sfz_glpi_api/api/public/chamado/abrir",
-    "title": "Abrir chamado",
-    "name": "abrir",
-    "description": "<p>Abrir chamado</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "descricao",
-            "description": "<p>Descrição do novo chamado.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "titulo",
-            "description": "<p>Título da categoria.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object",
-            "optional": false,
-            "field": "chamado",
-            "description": "<p>Chamado criado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.id",
-            "description": "<p>Id do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.titulo",
-            "description": "<p>Título do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.descricao",
-            "description": "<p>Descrição do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.solucao",
-            "description": "<p>Solução para o chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataAbertura",
-            "description": "<p>Data da abertura do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataFechamento",
-            "description": "<p>Data do encerramento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.status",
-            "description": "<p>Status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataAgendamento",
-            "description": "<p>Data de agendamento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.reservado",
-            "description": "<p>Reservado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.reservavel",
-            "description": "<p>Reservável.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataCriacao",
-            "description": "<p>Data da criação do chamado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n    \"id\": 6,\n    \"titulo\": \"documento teste\",\n    \"descricao\": \"dados adicionais\",\n    \"solucao\": null,\n    \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n    \"dataFechamento\": null,\n    \"idCategoria\": 31,\n    \"status\": 2,\n    \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n    \"reservado\": 0,\n    \"reservavel\": 0,\n    \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 400": [
-          {
-            "group": "Erro 400",
-            "optional": false,
-            "field": "BadRequest",
-            "description": "<p>Requisição inválida.</p>"
-          }
-        ],
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"chamadoDTO\",\n          \"field\": \"idCategoria\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
-  },
-  {
-    "type": "get",
-    "url": "/sfz_glpi_api/api/public/chamado",
-    "title": "Chamados do Usuário",
-    "name": "chamado",
-    "description": "<p>Obter Chamados para o Usuário</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados",
-            "description": "<p>Lista de chamados.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.id",
-            "description": "<p>Id do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.titulo",
-            "description": "<p>Título do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.descricao",
-            "description": "<p>Descrição do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.solucao",
-            "description": "<p>Solução para o chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAbertura",
-            "description": "<p>Data da abertura do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataFechamento",
-            "description": "<p>Data do encerramento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.status",
-            "description": "<p>Status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAgendamento",
-            "description": "<p>Data de agendamento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservado",
-            "description": "<p>Reservado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservavel",
-            "description": "<p>Reservável.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataCriacao",
-            "description": "<p>Data da criação do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados.statusChamado",
-            "description": "<p>Lista de status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.statusChamado.id",
-            "description": "<p>Lista de status ddo chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.dataAbertura",
-            "description": "<p>Data abertura do status.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.descricao",
-            "description": "<p>Descrição do status.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
-  },
-  {
-    "type": "get",
-    "url": "/sfz_glpi_api/api/public/chamado",
-    "title": "Consultar Chamado por ID",
-    "name": "chamado",
-    "description": "<p>Consultar Chamado or ID</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "Id",
-            "description": "<p>do chamado.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object",
-            "optional": false,
-            "field": "chamado",
-            "description": "<p>Lista de chamados.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.id",
-            "description": "<p>Id do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.titulo",
-            "description": "<p>Título do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.descricao",
-            "description": "<p>Descrição do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.solucao",
-            "description": "<p>Solução para o chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataAbertura",
-            "description": "<p>Data da abertura do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataFechamento",
-            "description": "<p>Data do encerramento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.status",
-            "description": "<p>Status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataAgendamento",
-            "description": "<p>Data de agendamento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.reservado",
-            "description": "<p>Reservado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.reservavel",
-            "description": "<p>Reservável.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.dataCriacao",
-            "description": "<p>Data da criação do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamado.statusChamado",
-            "description": "<p>Lista de status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamado.statusChamado.id",
-            "description": "<p>Lista de status ddo chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.statusChamado.dataAbertura",
-            "description": "<p>Data abertura do status.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamado.statusChamado.descricao",
-            "description": "<p>Descrição do status.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
-  },
-  {
-    "type": "get",
-    "url": "/sfz_glpi_api/api/public/obterCategorias",
-    "title": "obterCategorias",
-    "name": "obterCategorias",
-    "description": "<p>Obter Categorias para abertura do chamado</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "categorias",
-            "description": "<p>Lista de categorias.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "categorias.id",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "categorias.descricao",
-            "description": "<p>Descrição da categoria.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n      \"id\": 64,\n      \"descricao\": \"Dúvida\"\n  },\n  {\n      \"id\": 65,\n      \"descricao\": \"Denúncia\"\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/obterCategorias\"\n}\nResponse Code\n403",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
   },
   {
     "type": "get",
@@ -3094,7 +2447,7 @@ define({ "api": [
     "name": "solicitar_altera__o_de_dependente",
     "description": "<p>Solicitar uma alteração nos dependentes.</p>",
     "group": "gpmob_rh",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "header": {
       "fields": {
         "Header": [
@@ -3111,13 +2464,6 @@ define({ "api": [
     "parameter": {
       "fields": {
         "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Long",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Id do dependente</p>"
-          },
           {
             "group": "Parameter",
             "type": "String",
@@ -5786,13 +5132,13 @@ define({ "api": [
     "groupTitle": "nfcidada"
   },
   {
-    "type": "get",
+    "type": "put",
     "url": "/sfz-nfcidada-api/api/public/denuncia/alterar",
-    "title": "alterar",
-    "name": "alterar",
+    "title": "alterarDenuncia",
+    "name": "alterarDenuncia",
     "description": "<p>Altera uma denúncia de notas fiscais não enviadas pelo contribuinte.</p>",
     "group": "nfcidada",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "header": {
       "fields": {
         "Header": [
@@ -5912,7 +5258,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Exemplo de passagem de parâmetros:",
-          "content": "{\n \"cNF\": 987,\n \"cnpjDestinatario\": \"09326760000168\",\n \"cnpjEmitente\": \"09326760000168\",\n \"cpfDestinatario\": \"01364854481\",\n \"dataEmissao\": \"16/08/2017\",\n \"denuncia\": \"Uma denúncia\",\n \"id\": 45,\n \"numeroECF\": \"123456789\",\n \"serie\": \"A\",\n \"situacao\": \"Pendente\",\n \"subSerie\": 1,\n \"tipoDenuncia\": \"1\",\n \"tipoDocumento\": \"NFe\",\n \"valor\": 123.45\n}\n\napiSuccessExample {String} Exemplo de retorno do sucesso:\n[]",
+          "content": "{\n \"cNF\": 987,\n \"cnpjDestinatario\": \"09326760000168\",\n \"cnpjEmitente\": \"09326760000168\",\n \"cpfDestinatario\": \"01364854481\",\n \"dataEmissao\": \"16/08/2017\",\n \"denuncia\": \"Uma denúncia\",\n \"id\": 45,\n \"numeroECF\": \"123456789\",\n \"serie\": \"A\",\n \"situacao\": \"Pendente\",\n \"subSerie\": 1,\n \"tipoDenuncia\": \"1\",\n \"tipoDocumento\": \"NFe\",\n \"valor\": 123.45\n}\n\napiSuccessExample {String} Exemplo de retorno do sucesso:\n{\n     \"codigo\": 1029\n}",
           "type": "json"
         }
       ]
@@ -6096,13 +5442,13 @@ define({ "api": [
     "groupTitle": "nfcidada"
   },
   {
-    "type": "post",
-    "url": "/sfz-nfcidada-api/api/public/bilheteContemplado",
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/bilheteContemplado/{sequencialSorteio}",
     "title": "consultarBilhetesContempladosPorSequencialSorteio",
     "name": "consultarBilhetesContempladosPorSequencialSorteio",
     "description": "<p>Consulta de bilhetes contemplados nos sorteios.</p>",
     "group": "nfcidada",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "header": {
       "fields": {
         "Header": [
@@ -6427,13 +5773,13 @@ define({ "api": [
     "groupTitle": "nfcidada"
   },
   {
-    "type": "post",
-    "url": "/sfz-nfcidada-api/api/public/bilhete",
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/bilhete/{sequencialSorteio}",
     "title": "consultarBilhetesPorSequencialSorteio",
     "name": "consultarBilhetesPorSequencialSorteio",
     "description": "<p>Consulta de bilhetes nos sorteios.</p>",
     "group": "nfcidada",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "header": {
       "fields": {
         "Header": [
@@ -7127,6 +6473,192 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/situacaoDenuncia",
+    "title": "consultarSituacoesDeDenuncia",
+    "name": "consultarSituacoesDeDenuncia",
+    "description": "<p>Lista todas as situações das denúncias.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "situacoes",
+            "description": "<p>Lista de situações.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "codigo",
+            "description": "<p>Código da situação.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Descrição da situação.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "ordem",
+            "description": "<p>Ordem da situação.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p> <p>apiSuccessExample {String} Exemplo de retorno do sucesso: [ { &quot;codigo&quot;: 10, &quot;descricao&quot;: &quot;Situação A&quot;, &quot;ordem&quot;: 1 }, { &quot;codigo&quot;: 11, &quot;descricao&quot;: &quot;Situação B&quot;, &quot;ordem&quot;: 2 } ]</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/situacaoDenuncia\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/tipoDenuncia",
+    "title": "consultarTipoDeDenuncia",
+    "name": "consultarTipoDeDenuncia",
+    "description": "<p>Lista todos os tipos das denúncias.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "tipos",
+            "description": "<p>Lista de tipos.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "codigo",
+            "description": "<p>Código do tipo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Descrição do tipo.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "ordem",
+            "description": "<p>Ordem do tipo.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p> <p>apiSuccessExample {String} Exemplo de retorno do sucesso: [ { &quot;codigo&quot;: 10, &quot;descricao&quot;: &quot;Tipo A&quot;, &quot;ordem&quot;: 1 }, { &quot;codigo&quot;: 11, &quot;descricao&quot;: &quot;Tipo B&quot;, &quot;ordem&quot;: 2 } ]</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/tipoDenuncia\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "get",
     "url": "/sfz-nfcidada-api/api/public/entidadeSocial",
     "title": "consultarTodas",
     "name": "consultarTodas",
@@ -7740,7 +7272,7 @@ define({ "api": [
     "name": "listarTodos",
     "description": "<p>Consulta dos sorteios.</p>",
     "group": "nfcidada",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "header": {
       "fields": {
         "Header": [
@@ -7750,19 +7282,6 @@ define({ "api": [
             "optional": false,
             "field": "Autorization",
             "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "sequencialSorteio",
-            "description": "<p>Número sequencial do sorteio.</p>"
           }
         ]
       }
@@ -7981,8 +7500,8 @@ define({ "api": [
     "groupTitle": "nfcidada"
   },
   {
-    "type": "post",
-    "url": "/sfz-nfcidada-api/api/public/notas",
+    "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/notas/{dataCompetencia}",
     "title": "notas",
     "name": "notas",
     "description": "<p>Consulta notas emitidas por um contribuinte.</p>",
@@ -8009,7 +7528,7 @@ define({ "api": [
             "type": "String",
             "optional": false,
             "field": "dataCompetencia",
-            "description": "<p>Frase de segurança.</p>"
+            "description": "<p>Data de competência das notas.</p>"
           }
         ]
       },

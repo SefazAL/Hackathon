@@ -3,9 +3,8 @@
  * @apiName solicitar alteração de dependente
  * @apiDescription Solicitar uma alteração nos dependentes.
  * @apiGroup gpmob-rh
- * @apiVersion 1.0.0
+ * @apiVersion 1.0.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
- * @apiParam {Long} id Id do dependente
  * @apiParam {String} nome Nome do dependente.
  * @apiParam {Integer} tipoParentesco Id do tipo parentesco do depentente.
  * @apiParam {String} cpf CPF do dependente.
