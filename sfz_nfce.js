@@ -12,6 +12,7 @@
  * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).
  * @apiSuccess (Sucesso 201) {Object[]} produtos Lista de prodtos que satisfazem a consulta.
  * @apiSuccess (Sucesso 201) {String} produtos.codGetin Código do produto.
+ * @apiSuccess (Sucesso 201) {Long} produto.codNcm Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.
  * @apiSuccess (Sucesso 201) {String} produtos.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dthEmissaoUltimaVenda Data de Última venda do produto.
  * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda Valor unitário da Útima venda.
@@ -117,6 +118,7 @@
  * @apiParam {Integer} raio Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).
  * @apiSuccess (Sucesso 201) {Object[]} produtos Lista de prodtos que satisfazem a consulta.
  * @apiSuccess (Sucesso 201) {String} produtos.codGetin Código do produto.
+ * @apiSuccess (Sucesso 201) {Long} produto.codNcm Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.
  * @apiSuccess (Sucesso 201) {String} produtos.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produtos.dthEmissaoUltimaVenda Data de Última venda do produto.
  * @apiSuccess (Sucesso 201) {Double} produtos.valUnitarioUltimaVenda Valor unitário da Útima venda.
@@ -234,13 +236,14 @@
  * @apiName consultarPrecoProdutoEmEstabelecimento
  * @apiDescription Consulta o menor preço de venda de um produto em determinado estabelecimento.
  * @apiGroup nfce
- * @apiVersion 1.0.0
+ * @apiVersion 1.1.0
  * @apiHeader {String} AppToken Token de acesso do usuário.
  * @apiParam {String} cnpj CNPJ do estabelecimento.
  * @apiParam {String} codigoBarras Número do código de barras.
  * @apiParam {Integer} quantidadeDeDias Número de dias da busca.
  * @apiSuccess (Sucesso 201) {Object} produto Prodtos que satisfaz a consulta.
  * @apiSuccess (Sucesso 201) {String} produto.codGetin Código do produto.
+ * @apiSuccess (Sucesso 201) {Long} produto.codNcm Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.
  * @apiSuccess (Sucesso 201) {String} produto.dscProduto Descrição do produto.
  * @apiSuccess (Sucesso 201) {String} produto.dthEmissaoUltimaVenda Data de Última venda do produto.
  * @apiSuccess (Sucesso 201) {Double} produto.valUnitarioUltimaVenda Valor unitário da Útima venda.

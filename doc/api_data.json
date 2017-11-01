@@ -1770,6 +1770,197 @@
   {
     "type": "get",
     "url": "/sfz_glpi_api/api/public/chamado",
+    "title": "Chamados do Usuário",
+    "name": "chamado",
+    "description": "<p>Obter Chamados para o Usuário</p>",
+    "group": "glpi",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "chamados",
+            "description": "<p>Lista de chamados.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.id",
+            "description": "<p>Id do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.titulo",
+            "description": "<p>Título do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.descricao",
+            "description": "<p>Descrição do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.solucao",
+            "description": "<p>Solução para o chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataAbertura",
+            "description": "<p>Data da abertura do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataFechamento",
+            "description": "<p>Data do encerramento do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.idCategoria",
+            "description": "<p>Id da categoria.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.status",
+            "description": "<p>Status do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataAgendamento",
+            "description": "<p>Data de agendamento do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.reservado",
+            "description": "<p>Reservado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.reservavel",
+            "description": "<p>Reservável.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.dataCriacao",
+            "description": "<p>Data da criação do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "chamados.statusChamado",
+            "description": "<p>Lista de status do chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "Integer",
+            "optional": false,
+            "field": "chamados.statusChamado.id",
+            "description": "<p>Lista de status ddo chamado.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.statusChamado.dataAbertura",
+            "description": "<p>Data abertura do status.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "chamados.statusChamado.descricao",
+            "description": "<p>Descrição do status.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_glpi.js",
+    "groupTitle": "glpi"
+  },
+  {
+    "type": "get",
+    "url": "/sfz_glpi_api/api/public/chamado",
     "title": "Consultar Chamado por ID",
     "name": "chamado",
     "description": "<p>Consultar Chamado or ID</p>",
@@ -1921,197 +2112,6 @@
             "type": "String",
             "optional": false,
             "field": "chamado.statusChamado.descricao",
-            "description": "<p>Descrição do status.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n      \"id\": 6,\n      \"titulo\": \"documento teste\",\n      \"descricao\": \"dados adicionais\",\n      \"solucao\": null,\n      \"dataAbertura\": \"2017-03-17T10:55:13.000+0000\",\n      \"dataFechamento\": null,\n      \"idCategoria\": 31,\n      \"status\": 2,\n      \"dataAgendamento\": \"2017-08-16T15:27:23.000+0000\",\n      \"reservado\": 0,\n      \"reservavel\": 0,\n      \"dataCriacao\": \"2017-03-17T10:55:13.000+0000\",\n      \"statusChamado\": [\n          {\n              \"id\": 27,\n              \"dataAbertura\": \"2017-03-23T11:35:44.000+0000\",\n              \"descricao\": \"foi efetuada uma ligação onde foi esclarecida a dúvida\"\n          },\n          {\n              \"id\": 38,\n              \"dataAbertura\": \"2017-03-24T08:55:35.000+0000\",\n              \"descricao\": \"teste2\"\n          }\n      ]\n  }\n]",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"timestamp\": \"2017-08-17T18:54:02.119+0000\",\n  \"status\": 403,\n  \"error\": \"Forbidden\",\n  \"message\": \"Access Denied\",\n  \"path\": \"/sfz_glpi_api/api/public/chamado\"\n}\nResponse Code\n403",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_glpi.js",
-    "groupTitle": "glpi"
-  },
-  {
-    "type": "get",
-    "url": "/sfz_glpi_api/api/public/chamado",
-    "title": "Chamados do Usuário",
-    "name": "chamado",
-    "description": "<p>Obter Chamados para o Usuário</p>",
-    "group": "glpi",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados",
-            "description": "<p>Lista de chamados.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.id",
-            "description": "<p>Id do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.titulo",
-            "description": "<p>Título do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.descricao",
-            "description": "<p>Descrição do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.solucao",
-            "description": "<p>Solução para o chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAbertura",
-            "description": "<p>Data da abertura do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataFechamento",
-            "description": "<p>Data do encerramento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.idCategoria",
-            "description": "<p>Id da categoria.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.status",
-            "description": "<p>Status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataAgendamento",
-            "description": "<p>Data de agendamento do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservado",
-            "description": "<p>Reservado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.reservavel",
-            "description": "<p>Reservável.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.dataCriacao",
-            "description": "<p>Data da criação do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "chamados.statusChamado",
-            "description": "<p>Lista de status do chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "Integer",
-            "optional": false,
-            "field": "chamados.statusChamado.id",
-            "description": "<p>Lista de status ddo chamado.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.dataAbertura",
-            "description": "<p>Data abertura do status.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "chamados.statusChamado.descricao",
             "description": "<p>Descrição do status.</p>"
           }
         ]
@@ -3089,120 +3089,6 @@
   },
   {
     "type": "post",
-    "url": "/sfz_ficha_funcional_api/api/public/dadoFichaFuncional",
-    "title": "Solicitar alteração de dado ficha",
-    "name": "solicitar_altera__o_de_dependente",
-    "description": "<p>Solicitar uma alteração nos dependentes.</p>",
-    "group": "gpmob_rh",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "Long",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Id do dado ficha</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "descricao",
-            "description": "<p>Descrição do dado ficha.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "Integer",
-            "optional": false,
-            "field": "tipoDadoFichaFuncional",
-            "description": "<p>Id Tipo parentesco do depentente.</p>"
-          }
-        ]
-      }
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "Opera",
-            "description": "<p>ção realizada com sucesso!</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "{\n    \"numeroPessoaFuncionario\": 529483,\n    \"tipoStatus\": \"AGUARDANDO_APROVACAO\",\n    \"numeroPessoaInclusao\": 529483,\n    \"numeroPessoaAlteracao\": 529483,\n    \"dataInclusao\": 1502977953000,\n    \"dataAlteracao\": 1503005283728,\n    \"id\": 37923,\n    \"descricao\": \"João\",\n    \"tipoDadoFichaFuncional\": {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    },\n    \"tipo\": \"AGUARDANDO_APROVACAO\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 400": [
-          {
-            "group": "Erro 400",
-            "optional": false,
-            "field": "BadRequest",
-            "description": "<p>Requisição inválida.</p>"
-          }
-        ],
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"dadoFichaFuncionalDTO\",\n          \"field\": \"tipoDadoFichaFuncional\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_fichafuncional.js",
-    "groupTitle": "gpmob_rh"
-  },
-  {
-    "type": "post",
     "url": "/sfz_ficha_funcional_api/api/public/dependenteFuncionario",
     "title": "Solicitar alteração de dependente",
     "name": "solicitar_altera__o_de_dependente",
@@ -3336,6 +3222,120 @@
         {
           "title": "Exemplo de retorno do erro:",
           "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"DependenteFuncionarioDTO\",\n          \"field\": \"codigoTipoSexo\",\n          \"message\": \"Tipos: M | F\"\n      }\n  ]\n}\nResponse Code\n400",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_fichafuncional.js",
+    "groupTitle": "gpmob_rh"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_ficha_funcional_api/api/public/dadoFichaFuncional",
+    "title": "Solicitar alteração de dado ficha",
+    "name": "solicitar_altera__o_de_dependente",
+    "description": "<p>Solicitar uma alteração nos dependentes.</p>",
+    "group": "gpmob_rh",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Long",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Id do dado ficha</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Descrição do dado ficha.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "tipoDadoFichaFuncional",
+            "description": "<p>Id Tipo parentesco do depentente.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "Opera",
+            "description": "<p>ção realizada com sucesso!</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n    \"numeroPessoaFuncionario\": 529483,\n    \"tipoStatus\": \"AGUARDANDO_APROVACAO\",\n    \"numeroPessoaInclusao\": 529483,\n    \"numeroPessoaAlteracao\": 529483,\n    \"dataInclusao\": 1502977953000,\n    \"dataAlteracao\": 1503005283728,\n    \"id\": 37923,\n    \"descricao\": \"João\",\n    \"tipoDadoFichaFuncional\": {\n        \"id\": 2,\n        \"nomeTipo\": \"Nome do Pai\",\n        \"grupoTipo\": {\n            \"id\": 1,\n            \"nomeGrupoTipo\": \"Cadastro\",\n            \"numeroPessoaInclusao\": 100\n        },\n        \"numeroPessoaInclusao\": 100\n    },\n    \"tipo\": \"AGUARDANDO_APROVACAO\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 400": [
+          {
+            "group": "Erro 400",
+            "optional": false,
+            "field": "BadRequest",
+            "description": "<p>Requisição inválida.</p>"
+          }
+        ],
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "Response Body\n{\n  \"message\": \"error.validation\",\n  \"description\": null,\n  \"fieldErrors\": [\n      {\n          \"objectName\": \"dadoFichaFuncionalDTO\",\n          \"field\": \"tipoDadoFichaFuncional\",\n          \"message\": \"NotNull\"\n      }\n  ]\n}\nResponse Code\n400",
           "type": "json"
         }
       ]
@@ -3564,6 +3564,267 @@
     "name": "consultarPrecoProdutoEmEstabelecimento",
     "description": "<p>Consulta o menor preço de venda de um produto em determinado estabelecimento.</p>",
     "group": "nfce",
+    "version": "1.1.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "AppToken",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>CNPJ do estabelecimento.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "codigoBarras",
+            "description": "<p>Número do código de barras.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "quantidadeDeDias",
+            "description": "<p>Número de dias da busca.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"cnpj\": \"13004510039395\",\n  \"codigoBarras\" : \"7898286201968\",\n  \"quantidadeDeDias\": 3\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 201": [
+          {
+            "group": "Sucesso 201",
+            "type": "Object",
+            "optional": false,
+            "field": "produto",
+            "description": "<p>Prodtos que satisfaz a consulta.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.codGetin",
+            "description": "<p>Código do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Long",
+            "optional": false,
+            "field": "produto.codNcm",
+            "description": "<p>Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.dscProduto",
+            "description": "<p>Descrição do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.dthEmissaoUltimaVenda",
+            "description": "<p>Data de Última venda do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.valUnitarioUltimaVenda",
+            "description": "<p>Valor unitário da Útima venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.valUltimaVenda",
+            "description": "<p>Valor da Última venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMinimoVendido",
+            "description": "<p>Valor mínimo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMaximoVendido",
+            "description": "<p>Valor máximo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.txtDataUltimaEmissao",
+            "description": "<p>Cálculo do tempo da Data da última emissão do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numCNPJ",
+            "description": "<p>Número Cadastro Nacional da pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomRazaoSocial",
+            "description": "<p>Nome da razão social do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomFantasia",
+            "description": "<p>Nome fantasia do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numTelefone",
+            "description": "<p>Número de telefone do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomLogradouro",
+            "description": "<p>Nome do logradouro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numImovel",
+            "description": "<p>Número do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomBairro",
+            "description": "<p>Nome do bairro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.numCep",
+            "description": "<p>CEP.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produto.nomMunicipio",
+            "description": "<p>Municí­pio.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.numLatitude",
+            "description": "<p>Latitude do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produto.numLongitude",
+            "description": "<p>Longitude do estabelecimento.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n    \"codGetin\": \"7898286201968\",\n    \"codNcm\": \"21069029\",\n    \"dscProduto\": \"REFR MACA MARATA\",\n    \"valMinimoVendido\": 0.65,\n    \"valMaximoVendido\": 0.65,\n    \"dthEmissaoUltimaVenda\": \"2017-10-14T17:17:29.000+0000\",\n    \"valUnitarioUltimaVenda\": 0.65,\n    \"valUltimaVenda\": 0.65,\n    \"txtDataUltimaEmissao\": \"Há 2 dias e 23 horas\",\n    \"numCNPJ\": \"13004510039395\",\n    \"nomRazaoSocial\": \"BOMPRECO SUPERMERCADOS DO NORDESTE LTDA\",\n    \"nomFantasia\": \"HIPERMERCADO\",\n    \"numTelefone\": \"(81) 32717297\",\n    \"nomLogradouro\": \"AV MENINO MARCELO\",\n    \"numImovel\": \"5300\",\n    \"nomBairro\": \"ANTARES\",\n    \"numCep\": \"57083410\",\n    \"nomMunicipio\": \"MACEIO\",\n    \"numLatitude\": -9.574557,\n    \"numLongitude\": -35.738457\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfce.js",
+    "groupTitle": "nfce"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento",
+    "title": "consultarPrecoProdutoEmEstabelecimento",
+    "name": "consultarPrecoProdutoEmEstabelecimento",
+    "description": "<p>Consulta o menor preço de venda de um produto em determinado estabelecimento.</p>",
+    "group": "nfce",
     "version": "1.0.0",
     "header": {
       "fields": {
@@ -3747,6 +4008,281 @@
         {
           "title": "Exemplo de retorno do sucesso:",
           "content": "[\n    {\n        \"codGetin\": \"78909045\",\n        \"dscProduto\": \"COCA COLA ZERO PET UN\",\n        \"dthEmissaoUltimaVenda\": \"2017-08-15T15:47:02.000+0000\",\n        \"valUnitarioUltimaVenda\": 0.99,\n        \"valUltimaVenda\": 0.99,\n        \"txtDataUltimaEmissao\": \"Há 1 dia e 21 horas\",\n        \"numCNPJ\": \"39346861008499\",\n        \"nomRazaoSocial\": \"G. BARBOSA COMERCIAL LTDA.\",\n        \"nomFantasia\": \"G. BARBOSA\",\n        \"numTelefone\": \"(79) 32165210\",\n        \"nomLogradouro\": \"AV  MENINO MARCELO\",\n        \"numImovel\": \"9730\",\n        \"nomBairro\": \"SERRARIA\",\n        \"numCep\": \"57046000\",\n        \"nomMunicipio\": \"MACEIO\",\n        \"numLatitude\": -9.6118036,\n        \"numLongitude\": -35.7198944\n    }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./_apidoc.js",
+    "groupTitle": "nfce"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_nfce_api/api/public/consultarPrecosPorCodigoDeBarras",
+    "title": "consultarPrecosPorCodigoDeBarras",
+    "name": "consultarPrecosPorCodigoDeBarras",
+    "description": "<p>Consulta preços de mercadorias por código de barras.</p>",
+    "group": "nfce",
+    "version": "1.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "AppToken",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "codigoDeBarras",
+            "description": "<p>Código de barras do produto.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "dias",
+            "description": "<p>Número de dias da oferta (máx. 3 dias).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "latitude",
+            "description": "<p>Latitude de onde se encontra o dispositivo de consulta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "longitude",
+            "description": "<p>Longitude de onde se encontra o dispositivo de consulta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "raio",
+            "description": "<p>Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"codigoDeBarras\": \"07894900010015\",\n    \"dias\": 3,\n    \"latitude\": -9.6432331,\n    \"longitude\": -35.7190686,\n    \"raio\": 15\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 201": [
+          {
+            "group": "Sucesso 201",
+            "type": "Object[]",
+            "optional": false,
+            "field": "produtos",
+            "description": "<p>Lista de prodtos que satisfazem a consulta.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.codGetin",
+            "description": "<p>Código do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Long",
+            "optional": false,
+            "field": "produto.codNcm",
+            "description": "<p>Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.dscProduto",
+            "description": "<p>Descrição do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.dthEmissaoUltimaVenda",
+            "description": "<p>Data de Última venda do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valUnitarioUltimaVenda",
+            "description": "<p>Valor unitário da Útima venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valUltimaVenda",
+            "description": "<p>Valor da Última venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMinimoVendido",
+            "description": "<p>Valor mínimo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMaximoVendido",
+            "description": "<p>Valor máximo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.txtDataUltimaEmissao",
+            "description": "<p>Cálculo do tempo da Data da última emissão do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numCNPJ",
+            "description": "<p>Número Cadastro Nacional da pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomRazaoSocial",
+            "description": "<p>Nome da razão social do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomFantasia",
+            "description": "<p>Nome fantasia do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numTelefone",
+            "description": "<p>Número de telefone do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomLogradouro",
+            "description": "<p>Nome do logradouro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numImovel",
+            "description": "<p>Número do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomBairro",
+            "description": "<p>Nome do bairro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numCep",
+            "description": "<p>CEP.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomMunicipio",
+            "description": "<p>Municí­pio.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.numLatitude",
+            "description": "<p>Latitude do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.numLongitude",
+            "description": "<p>Longitude do estabelecimento.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n      \"codGetin\": \"07894900010015\",\n      \"codNcm\": \"22021000\",\n      \"dscProduto\": \"REFRI COCA COLA LT 350ML\",\n      \"valMinimoVendido\": 0.01,\n      \"valMaximoVendido\": 3.75,\n      \"dthEmissaoUltimaVenda\": \"2017-10-16T10:03:15.000+0000\",\n      \"valUnitarioUltimaVenda\": 3.75,\n      \"valUltimaVenda\": 0.01,\n      \"numCNPJ\": \"12268876000364\",\n      \"nomRazaoSocial\": \"RENOVADORA DE PNEUS OK LTDA\",\n      \"nomFantasia\": null,\n      \"numTelefone\": null,\n      \"nomLogradouro\": \"R   JANGADEIROS ALAGOANOS\",\n      \"numImovel\": \"1351\",\n      \"nomBairro\": \"PAJUSSARA\",\n      \"numCep\": \"57030000\",\n      \"nomMunicipio\": \"MACEIO\",\n      \"numLatitude\": -9.663984599999999,\n      \"numLongitude\": -35.7111234\n  },\n  {\n      \"codGetin\": \"7894900010015\",\n      \"codNcm\": \"22021000\",\n      \"dscProduto\": \"REFRI COCA-COLA 350ML\",\n      \"valMinimoVendido\": 2.25,\n      \"valMaximoVendido\": 2.25,\n      \"dthEmissaoUltimaVenda\": \"2017-10-17T00:46:59.000+0000\",\n      \"valUnitarioUltimaVenda\": 2.25,\n      \"valUltimaVenda\": 2.25,\n      \"numCNPJ\": \"12303616000625\",\n      \"nomRazaoSocial\": \"S. VIEIRA DA SILVA EIRELI\",\n      \"nomFantasia\": \"CASA VIEIRA\",\n      \"numTelefone\": \"(82) 21234444\",\n      \"nomLogradouro\": \"AV MENINO MARCELO\",\n      \"numImovel\": \"3800\",\n      \"nomBairro\": \"CIDADE UNIVERSITARIA\",\n      \"numCep\": \"57073470\",\n      \"nomMunicipio\": \"MACEIO\",\n      \"numLatitude\": -9.555659400000001,\n      \"numLongitude\": -35.7581934\n  },\n  {\n      \"codGetin\": \"7894900010015\",\n      \"codNcm\": \"22021000\",\n      \"dscProduto\": \"COCA COLA 350 ML\",\n      \"valMinimoVendido\": 2.25,\n      \"valMaximoVendido\": 4.5,\n      \"dthEmissaoUltimaVenda\": \"2017-10-16T19:56:12.000+0000\",\n      \"valUnitarioUltimaVenda\": 4.5,\n      \"valUltimaVenda\": 2.25,\n      \"numCNPJ\": \"00808928000369\",\n      \"nomRazaoSocial\": \"FF SORVETES LTDA - EPP                     \",\n      \"nomFantasia\": null,\n      \"numTelefone\": null,\n      \"nomLogradouro\": \"AV  ALVARO OTACILIO\",\n      \"numImovel\": \"3195\",\n      \"nomBairro\": \"PONTA VERDE\",\n      \"numCep\": \"57035180\",\n      \"nomMunicipio\": \"MACEIO\",\n      \"numLatitude\": -9.657080599999999,\n      \"numLongitude\": -35.6988336\n  }\n]",
           "type": "json"
         }
       ]
@@ -4048,7 +4584,7 @@
         }
       ]
     },
-    "filename": "./sfz_nfce.js",
+    "filename": "./_apidoc.js",
     "groupTitle": "nfce"
   },
   {
@@ -4304,6 +4840,281 @@
     "name": "consultarPrecosPorDescricao",
     "description": "<p>Consulta preços de mercadorias por descrição.</p>",
     "group": "nfce",
+    "version": "1.2.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "AppToken",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "descricao",
+            "description": "<p>Nome do produto.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "dias",
+            "description": "<p>Número de dias da oferta (máx. 3 dias).</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "latitude",
+            "description": "<p>Latitude de onde se encontra o dispositivo de consulta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Double",
+            "optional": false,
+            "field": "longitude",
+            "description": "<p>Longitude de onde se encontra o dispositivo de consulta.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Integer",
+            "optional": false,
+            "field": "raio",
+            "description": "<p>Raio de alcance em Kilômetros dos estabelecimentos pesquisados (máx. 15 km).</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n    \"descricao\": \"coca \",\n    \"dias\": 3,\n    \"latitude\": -9.6432331,\n    \"longitude\": -35.7190686,\n    \"raio\": 15\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 201": [
+          {
+            "group": "Sucesso 201",
+            "type": "Object[]",
+            "optional": false,
+            "field": "produtos",
+            "description": "<p>Lista de prodtos que satisfazem a consulta.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.codGetin",
+            "description": "<p>Código do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Long",
+            "optional": false,
+            "field": "produto.codNcm",
+            "description": "<p>Código NCM do produto. Nas consultas por descrição, é fornecido apenas quando o estabelecimento informa na nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.dscProduto",
+            "description": "<p>Descrição do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.dthEmissaoUltimaVenda",
+            "description": "<p>Data de Última venda do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valUnitarioUltimaVenda",
+            "description": "<p>Valor unitário da Útima venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valUltimaVenda",
+            "description": "<p>Valor da Última venda.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMinimoVendido",
+            "description": "<p>Valor mínimo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.valMaximoVendido",
+            "description": "<p>Valor máximo vendido no período pesquisado.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.txtDataUltimaEmissao",
+            "description": "<p>Cálculo do tempo da Data da última emissão do produto.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numCNPJ",
+            "description": "<p>Número Cadastro Nacional da pessoa jurídica.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomRazaoSocial",
+            "description": "<p>Nome da razão social do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomFantasia",
+            "description": "<p>Nome fantasia do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numTelefone",
+            "description": "<p>Número de telefone do contribuinte.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomLogradouro",
+            "description": "<p>Nome do logradouro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numImovel",
+            "description": "<p>Número do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomBairro",
+            "description": "<p>Nome do bairro do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.numCep",
+            "description": "<p>CEP.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "String",
+            "optional": false,
+            "field": "produtos.nomMunicipio",
+            "description": "<p>Municí­pio.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.numLatitude",
+            "description": "<p>Latitude do estabelecimento.</p>"
+          },
+          {
+            "group": "Sucesso 201",
+            "type": "Double",
+            "optional": false,
+            "field": "produtos.numLongitude",
+            "description": "<p>Longitude do estabelecimento.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n   {\n       \"codGetin\": \"07894900010015\",\n       \"codNcm\": \"22021000\",\n       \"dscProduto\": \"REFRI COCA COLA LT 350ML\",\n       \"valMinimoVendido\": 0.01,\n       \"valMaximoVendido\": 3.75,\n       \"dthEmissaoUltimaVenda\": \"2017-10-16T10:03:15.000+0000\",\n       \"valUnitarioUltimaVenda\": 3.75,\n       \"valUltimaVenda\": 0.01,\n       \"numCNPJ\": \"12268876000364\",\n       \"nomRazaoSocial\": \"RENOVADORA DE PNEUS OK LTDA\",\n       \"nomFantasia\": null,\n       \"numTelefone\": null,\n       \"nomLogradouro\": \"R   JANGADEIROS ALAGOANOS\",\n       \"numImovel\": \"1351\",\n       \"nomBairro\": \"PAJUSSARA\",\n       \"numCep\": \"57030000\",\n       \"nomMunicipio\": \"MACEIO\",\n       \"numLatitude\": -9.663984599999999,\n       \"numLongitude\": -35.7111234\n   },\n   {\n       \"codGetin\": null,\n       \"codNcm\": \"22021000\",\n       \"dscProduto\": \"REFRI COCA COLA L 350 ML RESTAURANTE\",\n       \"valMinimoVendido\": 0.01,\n       \"valMaximoVendido\": 7.5,\n       \"dthEmissaoUltimaVenda\": \"2017-10-16T22:20:18.000+0000\",\n       \"valUnitarioUltimaVenda\": 7.5,\n       \"valUltimaVenda\": 0.01,\n       \"numCNPJ\": \"09326499000104\",\n       \"nomRazaoSocial\": \"SOTEL HOTELARIA S/A\",\n       \"nomFantasia\": \"SOTEL HOTELARIA\",\n       \"numTelefone\": null,\n       \"nomLogradouro\": \"AV DOUTOR ANTONIO GOUVEIA\",\n       \"numImovel\": \"925\",\n       \"nomBairro\": \"PAJUCARA\",\n       \"numCep\": \"57030170\",\n       \"nomMunicipio\": \"MACEIO\",\n       \"numLatitude\": -9.666352699999999,\n       \"numLongitude\": -35.7125364\n   }\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ],
+        "Erro 500": [
+          {
+            "group": "Erro 500",
+            "optional": false,
+            "field": "InternalServerError",
+            "description": "<p>Autorização do aplicativo não encontrada.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-10-11T14:44:27.332+0000\",\n   \"status\": 500,\n   \"error\": \"Internal Server Error\",\n   \"exception\": \"br.gov.al.sefaz.acessoaplicativo.security.exception.AplicativoNaoEncontradaAutorizacaoAplicativoException\",\n   \"message\": \"Autorização do aplicativo não encontrada.\",\n   \"path\": \"/sfz_nfce_api/api/public/consultarPrecoProdutoEmEstabelecimento\"\n}\nResponse Code\n500",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfce.js",
+    "groupTitle": "nfce"
+  },
+  {
+    "type": "post",
+    "url": "/sfz_nfce_api/api/public/consultarPrecosPorDescricao",
+    "title": "consultarPrecosPorDescricao",
+    "name": "consultarPrecosPorDescricao",
+    "description": "<p>Consulta preços de mercadorias por descrição.</p>",
+    "group": "nfce",
     "version": "1.1.0",
     "header": {
       "fields": {
@@ -4548,7 +5359,7 @@
         }
       ]
     },
-    "filename": "./sfz_nfce.js",
+    "filename": "./_apidoc.js",
     "groupTitle": "nfce"
   },
   {
@@ -4799,7 +5610,7 @@
   },
   {
     "type": "get",
-    "url": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar/{cpf}",
+    "url": "/sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar",
     "title": "adotar",
     "name": "adotar",
     "description": "<p>usuário adota uma entidade social.</p>",
@@ -4975,7 +5786,7 @@
     "groupTitle": "nfcidada"
   },
   {
-    "type": "post",
+    "type": "get",
     "url": "/sfz-nfcidada-api/api/public/denuncia/alterar",
     "title": "alterar",
     "name": "alterar",
@@ -6091,6 +6902,231 @@
   },
   {
     "type": "get",
+    "url": "/sfz-nfcidada-api/api/public/denuncia/{id}",
+    "title": "consultarDenuncia",
+    "name": "consultarDenuncia",
+    "description": "<p>Consulta uma denúncia de um determinado contribuinte, passando sua identificação.</p>",
+    "group": "nfcidada",
+    "version": "1.0.0",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>Código de identificação de uma denúncia.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n  \"cnpj\": \"09326760000168\",\n  \"dataFim\": \"09/08/2017\",\n  \"dataInicio\": \"01/08/2017\",\n  \"tipoDenuncia\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object",
+            "optional": false,
+            "field": "denuncia",
+            "description": "<p>lista de denúncias.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.id",
+            "description": "<p>Código identificador de uma denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.tipoDocumento",
+            "description": "<p>Tipo de documento da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.cnpjEmitente",
+            "description": "<p>CNPJ do emitente da nota denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.cnpjDestinatario",
+            "description": "<p>CNPJ do destinatário da nota denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.cNF",
+            "description": "<p>Código da nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.serie",
+            "description": "<p>Número de série da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.subSerie",
+            "description": "<p>Número de sub-série da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.numeroECF",
+            "description": "<p>Número do ECF.,</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.dataEmissao",
+            "description": "<p>Data de emissão da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.valor",
+            "description": "<p>Valor da nota</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.cpfCnpjDenunciante",
+            "description": "<p>CPF ou CNPJ do denunciante.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.denuncia",
+            "description": "<p>Texto de descrição da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.responsavelDenuncia",
+            "description": "<p>Nome do responsável pela denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.tipoDenuncia",
+            "description": "<p>Tipo da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.descricaoTipoDenuncia",
+            "description": "<p>Descrição do tipo da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.situacao",
+            "description": "<p>Situação da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.descricaoSituacao",
+            "description": "<p>Descrição da situação da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncia.dataDenuncia",
+            "description": "<p>Data da denúncia.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "{\n  \"id\": 17,\n  \"tipoDocumento\": \"NFe\",\n  \"cnpjEmitente\": \"09326760000168\",\n  \"cnpjDestinatario\": \"09326760000168\",\n  \"cpfDestinatario\": \"11\",\n  \"cNF\": 1,\n  \"serie\": \"a\",\n  \"subSerie\": 1,\n  \"numeroECF\": \"123\",\n  \"dataEmissao\": \"2017-07-08T00:00:00.000+0000\",\n  \"valor\": 2.5,\n  \"cpfCnpjDenunciante\": \"marcelomalta\",\n  \"denuncia\": \"denuncia\",\n  \"responsavelDenuncia\": \"responsavel\",\n  \"tipoDenuncia\": \"1\",\n  \"descricaoTipoDenuncia\": \"Teste\",\n  \"situacao\": \"Pendente\",\n  \"descricaoSituacao\": null,\n  \"dataDenuncia\": \"2017-08-07T20:04:00.000+0000\"\n}",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "get",
     "url": "/sfz-nfcidada-api/api/public/entidadeSocial",
     "title": "consultarTodas",
     "name": "consultarTodas",
@@ -6277,252 +7313,6 @@
   },
   {
     "type": "post",
-    "url": "/sfz-nfcidada-api/api/public/denuncia",
-    "title": "denuncia",
-    "name": "denuncia",
-    "description": "<p>Consultar denúncias de um determinado contribuinte.</p>",
-    "group": "nfcidada",
-    "version": "1.0.0",
-    "header": {
-      "fields": {
-        "Header": [
-          {
-            "group": "Header",
-            "type": "String",
-            "optional": false,
-            "field": "Autorization",
-            "description": "<p>Token de acesso do usuário.</p>"
-          }
-        ]
-      }
-    },
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "cnpj",
-            "description": "<p>Frase de segurança.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "dataFim",
-            "description": "<p>Resposta de segurança.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "dataInicio",
-            "description": "<p>CFPF ou CNPJ do usuário.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "tipoDenuncia",
-            "description": "<p>Senha nova do usuário.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de passagem de parâmetros:",
-          "content": "{\n  \"cnpj\": \"09326760000168\",\n  \"dataFim\": \"09/08/2017\",\n  \"dataInicio\": \"01/08/2017\",\n  \"tipoDenuncia\": \"1\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Sucesso 200": [
-          {
-            "group": "Sucesso 200",
-            "type": "Object[]",
-            "optional": false,
-            "field": "denuncias",
-            "description": "<p>lista de denúncias.</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "tipoDocumento",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "cnpjEmitente",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "cnpjDestinatario",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "cNF",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "serie",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "subSerie",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "numeroECF",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "dataEmissao",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "valor",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "cpfCnpjDenunciante",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "denuncia",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "responsavelDenuncia",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "tipoDenuncia",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "descricaoTipoDenuncia",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "situacao",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "descricaoSituacao",
-            "description": "<p>Mensagem de sucesso</p>"
-          },
-          {
-            "group": "Sucesso 200",
-            "type": "String",
-            "optional": false,
-            "field": "dataDenuncia",
-            "description": "<p>Mensagem de sucesso</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do sucesso:",
-          "content": "[\n  {\n    \"id\": 17,\n    \"tipoDocumento\": \"NFe\",\n    \"cnpjEmitente\": \"09326760000168\",\n    \"cnpjDestinatario\": \"09326760000168\",\n    \"cpfDestinatario\": \"11\",\n    \"cNF\": 1,\n    \"serie\": \"a\",\n    \"subSerie\": 1,\n    \"numeroECF\": \"123\",\n    \"dataEmissao\": \"2017-07-08T00:00:00.000+0000\",\n    \"valor\": 2.5,\n    \"cpfCnpjDenunciante\": \"marcelomalta\",\n    \"denuncia\": \"denuncia\",\n    \"responsavelDenuncia\": \"responsavel\",\n    \"tipoDenuncia\": \"1\",\n    \"descricaoTipoDenuncia\": \"Teste\",\n    \"situacao\": \"Pendente\",\n    \"descricaoSituacao\": null,\n    \"dataDenuncia\": \"2017-08-07T20:04:00.000+0000\"\n  }\n]",
-          "type": "String"
-        }
-      ]
-    },
-    "error": {
-      "fields": {
-        "Erro 401": [
-          {
-            "group": "Erro 401",
-            "optional": false,
-            "field": "Unauthorized",
-            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
-          }
-        ],
-        "Erro 403": [
-          {
-            "group": "Erro 403",
-            "optional": false,
-            "field": "Forbidden",
-            "description": "<p>Usuário sem acesso.</p>"
-          }
-        ],
-        "Erro 404": [
-          {
-            "group": "Erro 404",
-            "optional": false,
-            "field": "NotFound",
-            "description": "<p><code>id</code> do usuário não encontrado.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Exemplo de retorno do erro:",
-          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "./sfz_nfcidada.js",
-    "groupTitle": "nfcidada"
-  },
-  {
-    "type": "post",
     "url": "/sfz-nfcidada-api/api/public/denuncia/incluir",
     "title": "incluir",
     "name": "incluir",
@@ -6690,6 +7480,252 @@
         {
           "title": "Exemplo de retorno do erro:",
           "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia/incluir\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "./sfz_nfcidada.js",
+    "groupTitle": "nfcidada"
+  },
+  {
+    "type": "post",
+    "url": "/sfz-nfcidada-api/api/public/denuncia",
+    "title": "listarDenuncias",
+    "name": "listarDenuncias",
+    "description": "<p>Consultar denúncias de um determinado contribuinte.</p>",
+    "group": "nfcidada",
+    "version": "1.0.1",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Autorization",
+            "description": "<p>Token de acesso do usuário.</p>"
+          }
+        ]
+      }
+    },
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "cnpj",
+            "description": "<p>Frase de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataFim",
+            "description": "<p>Resposta de segurança.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "dataInicio",
+            "description": "<p>CFPF ou CNPJ do usuário.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "tipoDenuncia",
+            "description": "<p>Senha nova do usuário.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de passagem de parâmetros:",
+          "content": "{\n  \"cnpj\": \"09326760000168\",\n  \"dataFim\": \"09/08/2017\",\n  \"dataInicio\": \"01/08/2017\",\n  \"tipoDenuncia\": \"1\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Sucesso 200": [
+          {
+            "group": "Sucesso 200",
+            "type": "Object[]",
+            "optional": false,
+            "field": "denuncias",
+            "description": "<p>lista de denúncias.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.id",
+            "description": "<p>Código identificador de uma denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.tipoDocumento",
+            "description": "<p>Tipo de documento da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.cnpjEmitente",
+            "description": "<p>CNPJ do emitente da nota denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.cnpjDestinatario",
+            "description": "<p>CNPJ do destinatário da nota denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.cNF",
+            "description": "<p>Código da nota fiscal.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.serie",
+            "description": "<p>Número de série da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.subSerie",
+            "description": "<p>Número de sub-série da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.numeroECF",
+            "description": "<p>Número do ECF.,</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.dataEmissao",
+            "description": "<p>Data de emissão da nota.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.valor",
+            "description": "<p>Valor da nota</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.cpfCnpjDenunciante",
+            "description": "<p>CPF ou CNPJ do denunciante.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.denuncia",
+            "description": "<p>Texto de descrição da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.responsavelDenuncia",
+            "description": "<p>Nome do responsável pela denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.tipoDenuncia",
+            "description": "<p>Tipo da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.descricaoTipoDenuncia",
+            "description": "<p>Descrição do tipo da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.situacao",
+            "description": "<p>Situação da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.descricaoSituacao",
+            "description": "<p>Descrição da situação da denúncia.</p>"
+          },
+          {
+            "group": "Sucesso 200",
+            "type": "String",
+            "optional": false,
+            "field": "denuncias.dataDenuncia",
+            "description": "<p>Data da denúncia.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do sucesso:",
+          "content": "[\n  {\n    \"id\": 17,\n    \"tipoDocumento\": \"NFe\",\n    \"cnpjEmitente\": \"09326760000168\",\n    \"cnpjDestinatario\": \"09326760000168\",\n    \"cpfDestinatario\": \"11\",\n    \"cNF\": 1,\n    \"serie\": \"a\",\n    \"subSerie\": 1,\n    \"numeroECF\": \"123\",\n    \"dataEmissao\": \"2017-07-08T00:00:00.000+0000\",\n    \"valor\": 2.5,\n    \"cpfCnpjDenunciante\": \"marcelomalta\",\n    \"denuncia\": \"denuncia\",\n    \"responsavelDenuncia\": \"responsavel\",\n    \"tipoDenuncia\": \"1\",\n    \"descricaoTipoDenuncia\": \"Teste\",\n    \"situacao\": \"Pendente\",\n    \"descricaoSituacao\": null,\n    \"dataDenuncia\": \"2017-08-07T20:04:00.000+0000\"\n  }\n]",
+          "type": "String"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Erro 401": [
+          {
+            "group": "Erro 401",
+            "optional": false,
+            "field": "Unauthorized",
+            "description": "<p>Usuário não autorizado a consultar esta função.</p>"
+          }
+        ],
+        "Erro 403": [
+          {
+            "group": "Erro 403",
+            "optional": false,
+            "field": "Forbidden",
+            "description": "<p>Usuário sem acesso.</p>"
+          }
+        ],
+        "Erro 404": [
+          {
+            "group": "Erro 404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p><code>id</code> do usuário não encontrado.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Exemplo de retorno do erro:",
+          "content": "{\n   \"timestamp\": \"2017-08-15T17:03:04.011+0000\",\n   \"status\": 403,\n   \"error\": \"Forbidden\",\n   \"message\": \"Access Denied\",\n   \"path\": \"/sfz-nfcidada-api/api/public/denuncia\"\n}",
           "type": "json"
         }
       ]

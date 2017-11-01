@@ -214,35 +214,35 @@
  */
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/denuncia denuncia
- * @apiName denuncia
+ * @api {post} /sfz-nfcidada-api/api/public/denuncia listarDenuncias
+ * @apiName listarDenuncias
  * @apiDescription Consultar denúncias de um determinado contribuinte.
  * @apiGroup nfcidada
- * @apiVersion 1.0.0
+ * @apiVersion 1.0.1
  * @apiHeader {String} Autorization Token de acesso do usuário.
  * @apiParam {String} cnpj Frase de segurança.
  * @apiParam {String} dataFim Resposta de segurança.
  * @apiParam {String} dataInicio CFPF ou CNPJ do usuário.
  * @apiParam {String} tipoDenuncia Senha nova do usuário.
  * @apiSuccess (Sucesso 200) {Object[]} denuncias lista de denúncias.
- * @apiSuccess (Sucesso 200) {String} id Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} tipoDocumento Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} cnpjEmitente Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} cnpjDestinatario Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} cNF Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} serie Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} subSerie Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} numeroECF Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} dataEmissao Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} valor Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} cpfCnpjDenunciante Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} denuncia Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} responsavelDenuncia Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} tipoDenuncia Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} descricaoTipoDenuncia Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} situacao Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} descricaoSituacao Mensagem de sucesso
- * @apiSuccess (Sucesso 200) {String} dataDenuncia Mensagem de sucesso
+ * @apiSuccess (Sucesso 200) {String} denuncias.id Código identificador de uma denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.tipoDocumento Tipo de documento da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.cnpjEmitente CNPJ do emitente da nota denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.cnpjDestinatario CNPJ do destinatário da nota denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.cNF Código da nota fiscal.
+ * @apiSuccess (Sucesso 200) {String} denuncias.serie Número de série da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncias.subSerie Número de sub-série da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncias.numeroECF Número do ECF.,
+ * @apiSuccess (Sucesso 200) {String} denuncias.dataEmissao Data de emissão da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncias.valor Valor da nota
+ * @apiSuccess (Sucesso 200) {String} denuncias.cpfCnpjDenunciante CPF ou CNPJ do denunciante.
+ * @apiSuccess (Sucesso 200) {String} denuncias.denuncia Texto de descrição da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.responsavelDenuncia Nome do responsável pela denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.tipoDenuncia Tipo da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.descricaoTipoDenuncia Descrição do tipo da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.situacao Situação da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.descricaoSituacao Descrição da situação da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncias.dataDenuncia Data da denúncia.
  * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
  * @apiError (Erro 403) Forbidden Usuário sem acesso.
  * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
@@ -289,6 +289,80 @@
  *    "path": "/sfz-nfcidada-api/api/public/denuncia"
  * }
  */
+
+ 
+/**
+ * @api {get} /sfz-nfcidada-api/api/public/denuncia/{id} consultarDenuncia
+ * @apiName consultarDenuncia
+ * @apiDescription Consulta uma denúncia de um determinado contribuinte, passando sua identificação.
+ * @apiGroup nfcidada
+ * @apiVersion 1.0.0
+ * @apiHeader {String} Autorization Token de acesso do usuário.
+ * @apiParam {String} id Código de identificação de uma denúncia.
+ * @apiSuccess (Sucesso 200) {Object} denuncia lista de denúncias.
+ * @apiSuccess (Sucesso 200) {String} denuncia.id Código identificador de uma denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.tipoDocumento Tipo de documento da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.cnpjEmitente CNPJ do emitente da nota denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.cnpjDestinatario CNPJ do destinatário da nota denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.cNF Código da nota fiscal.
+ * @apiSuccess (Sucesso 200) {String} denuncia.serie Número de série da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncia.subSerie Número de sub-série da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncia.numeroECF Número do ECF.,
+ * @apiSuccess (Sucesso 200) {String} denuncia.dataEmissao Data de emissão da nota.
+ * @apiSuccess (Sucesso 200) {String} denuncia.valor Valor da nota
+ * @apiSuccess (Sucesso 200) {String} denuncia.cpfCnpjDenunciante CPF ou CNPJ do denunciante.
+ * @apiSuccess (Sucesso 200) {String} denuncia.denuncia Texto de descrição da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.responsavelDenuncia Nome do responsável pela denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.tipoDenuncia Tipo da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.descricaoTipoDenuncia Descrição do tipo da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.situacao Situação da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.descricaoSituacao Descrição da situação da denúncia.
+ * @apiSuccess (Sucesso 200) {String} denuncia.dataDenuncia Data da denúncia.
+ * @apiError (Erro 401) Unauthorized Usuário não autorizado a consultar esta função.
+ * @apiError (Erro 403) Forbidden Usuário sem acesso.
+ * @apiError (Erro 404) NotFound <code>id</code> do usuário não encontrado.
+ *
+ * @apiParamExample {json} Exemplo de passagem de parâmetros:
+ * {
+ *   "cnpj": "09326760000168",
+ *   "dataFim": "09/08/2017",
+ *   "dataInicio": "01/08/2017",
+ *   "tipoDenuncia": "1"
+ * }
+ *
+ * @apiSuccessExample {String} Exemplo de retorno do sucesso:
+ * {
+ *   "id": 17,
+ *   "tipoDocumento": "NFe",
+ *   "cnpjEmitente": "09326760000168",
+ *   "cnpjDestinatario": "09326760000168",
+ *   "cpfDestinatario": "11",
+ *   "cNF": 1,
+ *   "serie": "a",
+ *   "subSerie": 1,
+ *   "numeroECF": "123",
+ *   "dataEmissao": "2017-07-08T00:00:00.000+0000",
+ *   "valor": 2.5,
+ *   "cpfCnpjDenunciante": "marcelomalta",
+ *   "denuncia": "denuncia",
+ *   "responsavelDenuncia": "responsavel",
+ *   "tipoDenuncia": "1",
+ *   "descricaoTipoDenuncia": "Teste",
+ *   "situacao": "Pendente",
+ *   "descricaoSituacao": null,
+ *   "dataDenuncia": "2017-08-07T20:04:00.000+0000"
+ * }
+ * 
+ * @apiErrorExample Exemplo de retorno do erro:
+ * {
+ *    "timestamp": "2017-08-15T17:03:04.011+0000",
+ *    "status": 403,
+ *    "error": "Forbidden",
+ *    "message": "Access Denied",
+ *    "path": "/sfz-nfcidada-api/api/public/denuncia"
+ * }
+ */
+
 
 /**
  * @api {post} /sfz-nfcidada-api/api/public/notas notas
@@ -406,7 +480,7 @@
  */
 
 /**
- * @api {post} /sfz-nfcidada-api/api/public/denuncia/alterar alterar
+ * @api {get} /sfz-nfcidada-api/api/public/denuncia/alterar alterar
  * @apiName alterar
  * @apiDescription Altera uma denúncia de notas fiscais não enviadas pelo contribuinte.
  * @apiGroup nfcidada
@@ -464,7 +538,7 @@
  */
 
 /**
- * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar/{cpf} adotar
+ * @api {get} /sfz-nfcidada-api/api/public/entidadeSocial/{id}/adotar adotar
  * @apiName adotar
  * @apiDescription usuário adota uma entidade social.
  * @apiGroup nfcidada
